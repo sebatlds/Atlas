@@ -2,13 +2,20 @@
     <string name="app_name">AtlaS</string>
     <string name="login">INICIE SESION</string>
     <string name="register">REGISTRECE</string>
-    <string name="userName">Ingrese su usario.</string>
+    <string name="userEmail">Ingrese su correo electronico.</string>
     <string name="password">Ingrese su contraseña.</string>
+    <string name="pass_register">Ingrese una contraseña...</string>
     <string name="continu">CONTINUE</string>
     <string name="cancel">CANCELAR</string>
-    <string name="user">Ingrese un usuario...</string>
+    <string name="lastname">Ingrese su Apellido...</string>
     <string name="pass">Ingrese una contraseña...</string>
     <string name="countrie">Seleccione su pais de nacimiento...</string>
     <string name="email">Ingrese su correo electronico...</string>
+    <string name="name">Ingrese su nombre...</string>
+    <string name="phone">Ingrese su telefono...</string>
+    <string name="lugar">Seleccione su pais de nacimiento...</string>
+    <string name="fecha_nacimiento">Seleccione su fecha de nacimiento</string>
     <string name="registrar">Registrar.</string>
+    <string name="checkbox_men">Hombre</string>
+    <string name="checkbox_women">Mujer</string>
 </resources>
