@@ -5,6 +5,7 @@
     <string name="userEmail">Ingrese su correo electronico.</string>
     <string name="password">Ingrese su contraseña.</string>
     <string name="pass_register">Ingrese una contraseña...</string>
+    <string name="pass2">Repita la contraseña...</string>
     <string name="continu">CONTINUE</string>
     <string name="cancel">CANCELAR</string>
     <string name="lastname">Ingrese su Apellido...</string>
@@ -18,4 +19,5 @@
     <string name="registrar">Registrar.</string>
     <string name="checkbox_men">Hombre</string>
     <string name="checkbox_women">Mujer</string>
+    <string name="close_session">Cerrar sesion</string>
 </resources>

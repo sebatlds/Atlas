@@ -1,6 +1,7 @@
 package com.sebastian.osorios.udea.atlas.Models
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 
 data class User (
@@ -20,12 +21,12 @@ data class User (
 )
 
 data class UserPost(
-    @SerializedName("first_name") val firstName : String,
-    @SerializedName("last_name") val lastName : String,
-    @SerializedName("gender") val gender : String,
-    @SerializedName("dob") val date : String,
-    @SerializedName("email") val email : String,
+    @SerializedName("first_name") val firstName: String,
+    @SerializedName("last_name") val lastName: String,
+    @SerializedName("gender") val gender: String,
+    @SerializedName("dob") val date: String,
+    @SerializedName("email") val email: String,
     //@SerializedName("phone") val country : String,
-    @SerializedName("address") val password : String,
-    @SerializedName("status") val status : String
+    @SerializedName("address") val password: String,
+    @SerializedName("status") val status: String
 )

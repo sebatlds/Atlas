@@ -4,10 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.sebastian.osorios.udea.atlas.Interfaces.ApiServices
@@ -19,9 +16,18 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.sebastian.osorios.udea.atlas.R
+import com.sebastian.osorios.udea.atlas.Util.CheckInternetConexion
+import com.sebastian.osorios.udea.atlas.Util.Constants
+import kotlinx.android.synthetic.main.activity_landing.*
+import android.text.method.*
 
 
 class LandingActivity : AppCompatActivity() {
+
+
+    val constants = Constants()
+    val commonFunctions = CommonFunctions()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,19 +42,14 @@ class LandingActivity : AppCompatActivity() {
         var editTextUserLogin : EditText = findViewById(R.id.userLogin)
         var editTextPassLogin : EditText = findViewById(R.id.passLogin)
         var seePass : ImageView = findViewById(R.id.seePassword)
+        var noSeePass : ImageView = findViewById(R.id.NoseePassword)
         val alert = AlertDialog.Builder(this)
-        var check : Boolean = true
+
+
         btnLogIn.setOnClickListener {
             linearLayout.isVisible= true
             linearLayoutButtonLogin.isVisible  = true
             linearLayoutButtons.isVisible = false
-        }
-
-        seePass.setOnClickListener {
-
-                editTextPassLogin.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD)
-                check=true
-
         }
 
         btnRegister.setOnClickListener {
@@ -56,67 +57,105 @@ class LandingActivity : AppCompatActivity() {
             startActivity(intento)
         }
 
+
         btnContinue.setOnClickListener {
+            val checkInternetConexion = CheckInternetConexion()
+            btnContinue.isEnabled = false
+            if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)) {
 
-            val retrofit = Retrofit.Builder()
-                .baseUrl("https://gorest.co.in")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+                val retrofit = Retrofit.Builder()
+                   .baseUrl(constants.BASE_URL)
+                   .addConverterFactory(GsonConverterFactory.create())
+                   .build()
 
-            val service = retrofit.create(ApiServices::class.java)
+                val service = retrofit.create(ApiServices::class.java)
 
-            service.getUser(editTextUserLogin.text.toString()).enqueue(object: Callback<BaseModel> {
-                override fun onResponse(call: Call<BaseModel>, response: Response<BaseModel>) {
+                service.getUser(editTextUserLogin.text.toString()).enqueue(object : Callback<BaseModel> {
+                       override fun onResponse(call: Call<BaseModel>, response: Response<BaseModel>){
 
-                        if(response.body()?.result?.isEmpty()!!){
-                            val commonFunctions = CommonFunctions()
-                            alert.setTitle("Error")
-                            alert.setMessage(commonFunctions.getErrorMessage("403",
-                                ""))
-                            alert.setPositiveButton(
-                                "Confirmar",null)
-                            alert.show()
-                        }else{
-                            validatePassword(editTextPassLogin.text.toString(), response.body()!!.result.get(0).password)
+                           if (response.body()?.result?.isEmpty()!!) {
+                               btnContinue.isEnabled = true
+                               val commonFunctions = CommonFunctions()
+                               alert.setTitle(constants.ERROR_TITLE)
+                               alert.setMessage(
+                                   commonFunctions.getErrorMessage(
+                                       "403",
+                                       ""
+                                   )
+                               )
+                               alert.setPositiveButton(
+                                   "Confirmar", null
+                               )
+                               alert.show()
+                           } else {
+                                validatePassword(editTextPassLogin.text.toString(), response.body()!!.result.get(0).password)
+                          }
+
+
                         }
-
-
-
-                }
-
-                override fun onFailure(call: Call<BaseModel>, t: Throwable) {
-                    val commonFunctions = CommonFunctions()
-                    alert.setTitle("Error")
-                    alert.setMessage(commonFunctions.getErrorMessage("501",""))
-                    alert.setPositiveButton(
-                        "Confirmar",null)
-                    alert.show()
-                }
-            })
+                        override fun onFailure(call: Call<BaseModel>, t: Throwable) {
+                            alert.setTitle(constants.ERROR_TITLE)
+                            alert.setMessage(commonFunctions.getErrorMessage("501", ""))
+                            alert.setPositiveButton(
+                                "Confirmar", null
+                            )
+                            alert.show()
+                            btnContinue.isEnabled = true
+                        }
+                })
+            }else{
+                btnContinue.isEnabled = true
+                val commonFunctions = CommonFunctions()
+                alert.setTitle(constants.ERROR_TITLE)
+                alert.setMessage(commonFunctions.getErrorMessage("402", ""))
+                alert.setPositiveButton(
+                    "Confirmar", null
+                )
+                alert.show()
+            }
         }
 
+
         btnCancel.setOnClickListener {
-            linearLayout.isVisible= false
+            linearLayout.isVisible = false
             linearLayoutButtons.isVisible = true
             linearLayoutButtonLogin.isVisible = false
             editTextPassLogin.setText("")
             editTextUserLogin.setText("")
-
         }
+
+        seePass.setOnClickListener {
+            editTextPassLogin.setTransformationMethod(HideReturnsTransformationMethod.getInstance())
+            seePass.isVisible = false
+            NoseePassword.isVisible = true
+        }
+
+        noSeePass.setOnClickListener {
+            editTextPassLogin.setTransformationMethod(PasswordTransformationMethod.getInstance())
+            seePass.isVisible = true
+            NoseePassword.isVisible = false
+        }
+
     }
 
     fun validatePassword(passInput : String, passDb :String){
-        if(passInput.equals(passDb)){
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
+        if(passDb.equals(passInput)){
+            var email = findViewById<EditText>(R.id.userLogin).text.toString()
+            val intent = Intent(applicationContext ,MainActivity::class.java)//startActivityForResult
+            intent.putExtra("email_landing",email)
+            startActivityForResult(intent,constants.REQUEST_CODE)
             finish()
         }else{
+            val btnContinue : Button = findViewById(R.id.continu)
+            btnContinue.isEnabled = true
             val alert = AlertDialog.Builder(this)
-            alert.setTitle("Error")
-            alert.setMessage("Contraseña incorrecta!!")
+            alert.setTitle(constants.ERROR_TITLE)
+            alert.setMessage(commonFunctions.getErrorMessage("405",""))
             alert.setPositiveButton(
                 "Confirmar",null)
             alert.show()
         }
     }
+
+
 }

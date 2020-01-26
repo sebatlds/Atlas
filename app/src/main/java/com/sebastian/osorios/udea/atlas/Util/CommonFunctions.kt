@@ -1,5 +1,11 @@
 package com.sebastian.osorios.udea.atlas.Util
 
+import android.annotation.TargetApi
+import android.os.Build
+import androidx.annotation.RequiresApi
+import java.nio.charset.StandardCharsets
+import java.util.*
+
 
 class CommonFunctions {
 
@@ -14,11 +20,17 @@ class CommonFunctions {
             "401"->{
                 return "Solicitud incorrecta."
             }
+            "402"->{
+                return "Verifique su conexion a internet."
+            }
             "403"->{
-                return "No se encuentra registrado."
+                return "El email ingresado, no se encuentra registrado."
             }
             "404"->{
                 return "El recurso solicitado no existe."
+            }
+            "405"->{
+                return "Contraseña incorrecta."
             }
             "422"->{
                 if(body.equals("user must have atleast 11 years to have an account")){
@@ -31,7 +43,7 @@ class CommonFunctions {
 
             }
             "429"->{
-                return "Demasiadas solicitudes La solicitud fue rechazada debido a la limitación de la tasa."
+                return "Demasiadas solicitudes. La solicitud fue rechazada debido a la limitación de la tasa."
             }
             "500"->{
                 return "Error interno en el servidor."
@@ -41,4 +53,8 @@ class CommonFunctions {
             }
         }
     }
+
+
+
 }
+
