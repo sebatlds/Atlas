@@ -2,40 +2,77 @@ package com.sebastian.osorios.udea.atlas.Activitys
 
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationView
 import com.sebastian.osorios.udea.atlas.R
+import de.hdodenhof.circleimageview.CircleImageView
+
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Toast.makeText(applicationContext,intent.getStringExtra("email_landing"),Toast.LENGTH_LONG).show()
-        var textView : TextView = findViewById(R.id.textViewEmail)
-        textView.text = intent.getStringExtra("email_landing")
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        val objetoIntent : Intent = intent
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        val navView: NavigationView = findViewById(R.id.nav_view)
+        val navController   = findNavController(R.id.nav_host_fragment)
+        val view : View = LayoutInflater.from(this).inflate(R.layout.nav_header_main,null)
+        navView.addHeaderView(view)
+        val textViewName : TextView = view.findViewById(R.id.textViewNameNavHeader)
+        val textViewEmail : TextView = view.findViewById(R.id.textViewEmailNavHeader)
+        val imageView : CircleImageView = view.findViewById(R.id.imageViewCircle)
+        textViewEmail.text = intent.getStringExtra("name")
+        textViewName.text = intent.getStringExtra("email")
+        imageView.setImageResource(R.drawable.images)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_countries,
+                R.id.nav_profile
+            ), drawerLayout
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
 
     }
 
-    /**
-     * Metodo para mostrar menu
-     */
-    override fun onCreateOptionsMenu(menu : Menu): Boolean{
-
-         menuInflater.inflate(R.menu.overflow, menu )
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main, menu)
         return true
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
 
     override fun onOptionsItemSelected(item : MenuItem) : Boolean{
 
         var id : Int = item.itemId
 
-        if(id == R.id.closeSession){
+        if(id == R.id.action_close){
             val alert = AlertDialog.Builder(this)
             alert.setTitle("Cerrar Sesion")
             alert.setMessage("¿Esta seguro que desea cerrar sesion?")
@@ -52,5 +89,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(intento)
         finish()
     }
+
 
 }

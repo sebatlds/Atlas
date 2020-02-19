@@ -8,8 +8,8 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.sebastian.osorios.udea.atlas.Interfaces.ApiServices
-import com.sebastian.osorios.udea.atlas.Models.BaseModel
-import com.sebastian.osorios.udea.atlas.Models.UserPost
+import com.sebastian.osorios.udea.atlas.Models.User.BaseModel
+import com.sebastian.osorios.udea.atlas.Models.User.UserPost
 import com.sebastian.osorios.udea.atlas.Util.CheckInternetConexion
 import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import com.sebastian.osorios.udea.atlas.Util.Constants
@@ -126,15 +126,16 @@ class RegisterInAtlas : AppCompatActivity(){
                     } else {
                         gender = "female"
                     }
-                    val user = UserPost(
-                        editTextNameRegister.text.toString(),
-                        editTextLastNameRegister.text.toString(),
-                        gender,
-                        editTextDateRegister.text.toString().replace("/", "-"),
-                        editTextEmailRegister.text.toString(),
-                        editTextPassRegister.text.toString(),
-                        "active"
-                    )
+                    val user =
+                        UserPost(
+                            editTextNameRegister.text.toString(),
+                            editTextLastNameRegister.text.toString(),
+                            gender,
+                            editTextDateRegister.text.toString().replace("/", "-"),
+                            editTextEmailRegister.text.toString(),
+                            editTextPassRegister.text.toString(),
+                            "active"
+                        )
                     val retrofit = Retrofit.Builder()
                         .baseUrl("https://gorest.co.in")
                         .addConverterFactory(GsonConverterFactory.create())
