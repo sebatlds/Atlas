@@ -3,12 +3,11 @@ package com.sebastian.osorios.udea.atlas.Activitys
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.sebastian.osorios.udea.atlas.Interfaces.ApiServices
-import com.sebastian.osorios.udea.atlas.Models.BaseModel
+import com.sebastian.osorios.udea.atlas.Models.User.BaseModel
 import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import retrofit2.Call
 import retrofit2.Callback
@@ -88,7 +87,8 @@ class LandingActivity : AppCompatActivity() {
                                )
                                alert.show()
                            } else {
-                                validatePassword(editTextPassLogin.text.toString(), response.body()!!.result.get(0).password)
+
+                                validatePassword(editTextPassLogin.text.toString(), response.body())
                           }
 
 
@@ -138,11 +138,14 @@ class LandingActivity : AppCompatActivity() {
 
     }
 
-    fun validatePassword(passInput : String, passDb :String){
-        if(passDb.equals(passInput)){
-            var email = findViewById<EditText>(R.id.userLogin).text.toString()
-            val intent = Intent(applicationContext ,MainActivity::class.java)//startActivityForResult
-            intent.putExtra("email_landing",email)
+    fun validatePassword(passInput: String, user: BaseModel?){
+        if(user!!.result.get(0).password.equals(passInput)){
+            val intent = Intent(applicationContext ,MainActivity::class.java)
+            intent.putExtra("name",user!!.result.get(0).firstName)
+            intent.putExtra("lastName",user!!.result.get(0).lastName)
+            intent.putExtra("email",user!!.result.get(0).email)
+            intent.putExtra("gender",user!!.result.get(0).gender)
+            intent.putExtra("date",user!!.result.get(0).date)
             startActivityForResult(intent,constants.REQUEST_CODE)
             finish()
         }else{
@@ -159,3 +162,5 @@ class LandingActivity : AppCompatActivity() {
 
 
 }
+
+

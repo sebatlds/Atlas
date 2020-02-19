@@ -1,11 +1,9 @@
 package com.sebastian.osorios.udea.atlas.Util
 
-import android.annotation.TargetApi
-import android.os.Build
-import androidx.annotation.RequiresApi
-import java.nio.charset.StandardCharsets
-import java.util.*
-
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import java.net.*
+import java.io.*
 
 class CommonFunctions {
 
@@ -53,6 +51,7 @@ class CommonFunctions {
             }
         }
     }
+
 
 
 
