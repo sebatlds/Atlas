@@ -6,19 +6,15 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.sebastian.osorios.udea.atlas.Interfaces.ApiServices
-import com.sebastian.osorios.udea.atlas.Models.User.BaseModel
 import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import com.sebastian.osorios.udea.atlas.R
 import com.sebastian.osorios.udea.atlas.Util.CheckInternetConexion
 import com.sebastian.osorios.udea.atlas.Util.Constants
 import kotlinx.android.synthetic.main.activity_landing.*
 import android.text.method.*
+import com.sebastian.osorios.udea.atlas.Interfaces.UserDAO
+import com.sebastian.osorios.udea.atlas.Models.User.Usuario
+import com.sebastian.osorios.udea.atlas.DB.SesionRoom
 
 
 class LandingActivity : AppCompatActivity() {
@@ -61,48 +57,28 @@ class LandingActivity : AppCompatActivity() {
             val checkInternetConexion = CheckInternetConexion()
             btnContinue.isEnabled = false
             if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)) {
+                val email : String = editTextUserLogin.text.toString()
+                val userDAO : UserDAO = SesionRoom.database.UserDAO()
+                val usuario : Usuario = userDAO.searchUser(email)
 
-                val retrofit = Retrofit.Builder()
-                   .baseUrl(constants.BASE_URL)
-                   .addConverterFactory(GsonConverterFactory.create())
-                   .build()
-
-                val service = retrofit.create(ApiServices::class.java)
-
-                service.getUser(editTextUserLogin.text.toString()).enqueue(object : Callback<BaseModel> {
-                       override fun onResponse(call: Call<BaseModel>, response: Response<BaseModel>){
-
-                           if (response.body()?.result?.isEmpty()!!) {
-                               btnContinue.isEnabled = true
-                               val commonFunctions = CommonFunctions()
-                               alert.setTitle(constants.ERROR_TITLE)
-                               alert.setMessage(
-                                   commonFunctions.getErrorMessage(
-                                       "403",
-                                       ""
-                                   )
-                               )
-                               alert.setPositiveButton(
-                                   "Confirmar", null
-                               )
-                               alert.show()
-                           } else {
-
-                                validatePassword(editTextPassLogin.text.toString(), response.body())
-                          }
-
-
-                        }
-                        override fun onFailure(call: Call<BaseModel>, t: Throwable) {
-                            alert.setTitle(constants.ERROR_TITLE)
-                            alert.setMessage(commonFunctions.getErrorMessage("501", ""))
-                            alert.setPositiveButton(
-                                "Confirmar", null
+                if (usuario != null) {
+                    validatePassword(editTextPassLogin.text.toString(), usuario)
+                } else {
+                        btnContinue.isEnabled = true
+                        val commonFunctions = CommonFunctions()
+                        alert.setTitle(constants.ERROR_TITLE)
+                        alert.setMessage(
+                            commonFunctions.getErrorMessage(
+                                "403",
+                                ""
                             )
-                            alert.show()
-                            btnContinue.isEnabled = true
-                        }
-                })
+                        )
+                        alert.setPositiveButton(
+                            "Confirmar", null
+                        )
+                        alert.show()
+
+                    }
             }else{
                 btnContinue.isEnabled = true
                 val commonFunctions = CommonFunctions()
@@ -137,15 +113,11 @@ class LandingActivity : AppCompatActivity() {
         }
 
     }
-
-    fun validatePassword(passInput: String, user: BaseModel?){
-        if(user!!.result.get(0).password.equals(passInput)){
+    fun validatePassword(passInput: String, user: Usuario){
+        if(user.password.equals(passInput)){
+            val id : String = user.id.toString()
             val intent = Intent(applicationContext ,MainActivity::class.java)
-            intent.putExtra("name",user!!.result.get(0).firstName)
-            intent.putExtra("lastName",user!!.result.get(0).lastName)
-            intent.putExtra("email",user!!.result.get(0).email)
-            intent.putExtra("gender",user!!.result.get(0).gender)
-            intent.putExtra("date",user!!.result.get(0).date)
+            intent.putExtra("id",id)
             startActivityForResult(intent,constants.REQUEST_CODE)
             finish()
         }else{
@@ -162,5 +134,3 @@ class LandingActivity : AppCompatActivity() {
 
 
 }
-
-
