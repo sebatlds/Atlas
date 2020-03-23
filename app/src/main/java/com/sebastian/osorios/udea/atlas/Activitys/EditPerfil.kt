@@ -1,14 +1,22 @@
 package com.sebastian.osorios.udea.atlas.Activitys
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.sebastian.osorios.udea.atlas.Interfaces.UserDAO
+import com.sebastian.osorios.udea.atlas.Models.User.Usuario
 import com.sebastian.osorios.udea.atlas.R
+import com.sebastian.osorios.udea.atlas.DB.SesionRoom
+import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
+import kotlinx.android.synthetic.main.activity_edit_perfil.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -26,18 +34,85 @@ class EditPerfil : AppCompatActivity() {
         var emailEdit : EditText = findViewById(R.id.edit_email)
         var dateEdit : EditText = findViewById(R.id.edit_date)
 
-        nameEdit.hint = intent.getStringExtra("name_perfil").toString()
-        lastName.hint = intent.getStringExtra("last_name_perfil").toString()
-        emailEdit.hint = intent.getStringExtra("email_perfil")
-        dateEdit.hint = intent.getStringExtra("date_perfil")
+        var id: String  = intent?.getStringExtra("id").toString()
+        val userDAO : UserDAO = SesionRoom.database.UserDAO()
+        val usuario : Usuario = userDAO.searchUserId(id.toInt())
 
-        if("Hombre".equals(intent.getStringExtra("genero_perfil"))){
-            checkMenEdit.isChecked = true
-            checkWomenEdit.isChecked = false
+        if(usuario != null){
+            nameEdit.hint = usuario.name
+            lastName.hint = usuario.lastName
+            emailEdit.hint = usuario.email
+            dateEdit.hint = usuario.date
+            if("Hombre".equals(usuario.gender)){
+                checkMenEdit.isChecked = true
+                checkWomenEdit.isChecked = false
+            }else{
+                checkMenEdit.isChecked = false
+                checkWomenEdit.isChecked = true
+            }
         }else{
-            checkMenEdit.isChecked = false
-            checkWomenEdit.isChecked = true
+            val btnEdit : Button = findViewById(R.id.btn_save_edit)
+            btnEdit.isEnabled= false
+            val commonFunctions : CommonFunctions = CommonFunctions()
+            Toast.makeText(this,commonFunctions.getErrorMessage("502",""), Toast.LENGTH_LONG ).show()
+            val intento = Intent(this, LandingActivity ::class.java)
+            startActivity(intento)
+            finish()
         }
+
+        btn_save_edit.setOnClickListener {
+            var userDAO : UserDAO = SesionRoom.database.UserDAO()
+            var gender : String
+            var name : String
+            var lastNameEdit : String
+            var email : String
+            var date : String
+            if(nameEdit.text.toString().equals("")){
+                name = usuario.name
+            }else{
+                name = nameEdit.text.toString()
+            }
+
+            if(lastName.text.toString().equals("")){
+                lastNameEdit = usuario.lastName
+            }else{
+                lastNameEdit = lastName.text.toString()
+            }
+
+            if(emailEdit.text.toString().equals("")){
+                email = usuario.email
+            }else{
+                email = emailEdit.text.toString()
+            }
+
+            if(dateEdit.text.toString().equals("")){
+                date = usuario.date
+            }else{
+                date = dateEdit.text.toString()
+            }
+            if(checkMenEdit.isChecked){
+                gender = "Hombre"
+            }else{
+                gender = "Mujer"
+            }
+            val user : Unit = userDAO.updateUser(
+                Usuario(
+                    usuario.id,
+                    email,
+                    name,
+                    lastNameEdit,
+                    usuario.password,
+                    date,
+                    gender
+                )
+            )
+            Toast.makeText(this,"Actualización conrrecta",Toast.LENGTH_SHORT).show()
+            val intent = Intent(applicationContext ,MainActivity::class.java)
+            intent.putExtra("id",id)
+            startActivity(intent)
+            finish()
+        }
+
 
         dateEdit.setOnClickListener(){
             val datePickerFragment : DatePickerFragment = DatePickerFragment()
@@ -56,4 +131,7 @@ class EditPerfil : AppCompatActivity() {
 
 
     }
+
+
 }
+

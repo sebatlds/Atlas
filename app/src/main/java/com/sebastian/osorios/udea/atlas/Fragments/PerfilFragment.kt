@@ -8,9 +8,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.sebastian.osorios.udea.atlas.Activitys.EditPerfil
+import com.sebastian.osorios.udea.atlas.Activitys.LandingActivity
+import com.sebastian.osorios.udea.atlas.Activitys.MainActivity
+import com.sebastian.osorios.udea.atlas.Interfaces.UserDAO
+import com.sebastian.osorios.udea.atlas.Models.User.Usuario
 import com.sebastian.osorios.udea.atlas.R
+import com.sebastian.osorios.udea.atlas.DB.SesionRoom
+import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
+import com.sebastian.osorios.udea.atlas.Util.Constants
 
 
 class PerfilFragment : Fragment() {
@@ -34,33 +42,40 @@ class PerfilFragment : Fragment() {
         var textViewDate : TextView = root.findViewById(R.id.perfil_date)
         var textViewGenero : TextView = root.findViewById(R.id.genero_perfil)
         var imageViewGenero : ImageView = root.findViewById(R.id.imageView_genero)
-        var name = intent.getStringExtra("name")
-        var lastName = intent.getStringExtra("lastName")
-        var email = intent.getStringExtra("email")
-        var date = intent.getStringExtra("date")
+        var id  = intent.getStringExtra("id")
+        val userDAO : UserDAO = SesionRoom.database.UserDAO()
+        val user : Usuario = userDAO.searchUserId(id.toInt())
         var gender : String
-        if(intent.getStringExtra("gender").equals("male")){
-            imageViewGenero.setImageResource(R.drawable.macho)
-            gender = "Hombre"
+        if(user != null){
+            var name = user.name
+            var lastName = user.lastName
+            var email = user.email
+            var date = user.date
+            if(user.gender.equals("Hombre")){
+                imageViewGenero.setImageResource(R.drawable.macho)
+                gender = "Hombre"
+            }else{
+                imageViewGenero.setImageResource(R.drawable.femenino)
+                gender = "Mujer"
+            }
+            textViewName.text = name
+            textViewLastName.text = lastName
+            textViewEmail.text = email
+            textViewDate.text = date
+            textViewGenero.text = gender
         }else{
-            imageViewGenero.setImageResource(R.drawable.femenino)
-            gender = "Mujer"
+            val commonFunctions : CommonFunctions = CommonFunctions()
+            Toast.makeText(context,commonFunctions.getErrorMessage("502",""),Toast.LENGTH_LONG)
+            val intento = Intent(context, LandingActivity ::class.java)
+            startActivity(intento)
         }
-        textViewName.text = name
-        textViewLastName.text = lastName
-        textViewEmail.text = email
-        textViewDate.text = date
-        textViewGenero.text = gender
-
 
         iconEdit?.setOnClickListener(){
+            val constants = Constants()
             val intent = Intent(this.context , EditPerfil::class.java)
-            intent.putExtra("email_perfil",email)
-            intent.putExtra("name_perfil",name)
-            intent.putExtra("last_name_perfil",lastName)
-            intent.putExtra("date_perfil",date)
-            intent.putExtra("genero_perfil",gender)
+            intent.putExtra("id",id)
             startActivity(intent)
+            startActivityForResult(intent,constants.REQUEST_CODE)
         }
 
 

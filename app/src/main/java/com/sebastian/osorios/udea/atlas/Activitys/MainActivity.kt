@@ -17,6 +17,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import com.sebastian.osorios.udea.atlas.DB.SesionRoom
+import com.sebastian.osorios.udea.atlas.Interfaces.UserDAO
+import com.sebastian.osorios.udea.atlas.Models.User.Usuario
 import com.sebastian.osorios.udea.atlas.R
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -33,15 +36,21 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         val objetoIntent : Intent = intent
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
+        val navView: NavigationView = findViewById<NavigationView>(R.id.nav_view)
         val navController   = findNavController(R.id.nav_host_fragment)
         val view : View = LayoutInflater.from(this).inflate(R.layout.nav_header_main,null)
         navView.addHeaderView(view)
         val textViewName : TextView = view.findViewById(R.id.textViewNameNavHeader)
         val textViewEmail : TextView = view.findViewById(R.id.textViewEmailNavHeader)
         val imageView : CircleImageView = view.findViewById(R.id.imageViewCircle)
-        textViewEmail.text = intent.getStringExtra("name")
-        textViewName.text = intent.getStringExtra("email")
+        var id = intent.getStringExtra("id")
+        val userDAO : UserDAO = SesionRoom.database.UserDAO()
+        val usuario : Usuario = userDAO.searchUserId(id.toInt())
+        if(usuario != null){
+            textViewEmail.text = usuario.email
+            textViewName.text = usuario.name+" "+usuario.lastName
+        }
+
         imageView.setImageResource(R.drawable.images)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
