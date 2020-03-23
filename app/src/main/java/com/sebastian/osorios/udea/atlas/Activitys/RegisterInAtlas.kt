@@ -7,23 +7,19 @@ import android.os.Bundle
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.sebastian.osorios.udea.atlas.Interfaces.ApiServices
-import com.sebastian.osorios.udea.atlas.Models.User.BaseModel
-import com.sebastian.osorios.udea.atlas.Models.User.UserPost
 import com.sebastian.osorios.udea.atlas.Util.CheckInternetConexion
 import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import com.sebastian.osorios.udea.atlas.Util.Constants
 import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import com.sebastian.osorios.udea.atlas.R
 import java.util.Calendar
 import android.app.DatePickerDialog
+import com.sebastian.osorios.udea.atlas.Interfaces.UserDAO
+import com.sebastian.osorios.udea.atlas.Models.User.Usuario
+import com.sebastian.osorios.udea.atlas.DB.SesionRoom
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.sql.Types.NULL
 
 
 class RegisterInAtlas : AppCompatActivity(){
@@ -84,7 +80,7 @@ class RegisterInAtlas : AppCompatActivity(){
         }
 
         buttonSaveRegister.setOnClickListener {
-            if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)){
+           // if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)){
                 buttonSaveRegister.isEnabled=false
                 if (editTextEmailRegister.text.toString().equals("") || editTextPassRegister.text.toString().equals("") ||
                     editTextNameRegister.text.toString().equals("") ||
@@ -122,62 +118,32 @@ class RegisterInAtlas : AppCompatActivity(){
                      */
                     var gender: String;
                     if (radioButtonMenRegister.isChecked) {
-                        gender = "male"
+                        gender = "Hombre"
                     } else {
-                        gender = "female"
+                        gender = "Mujer"
                     }
-                    val user =
-                        UserPost(
+                    val usuario =
+                        Usuario(
+                            NULL,
+                            editTextEmailRegister.text.toString(),
                             editTextNameRegister.text.toString(),
                             editTextLastNameRegister.text.toString(),
-                            gender,
-                            editTextDateRegister.text.toString().replace("/", "-"),
-                            editTextEmailRegister.text.toString(),
                             editTextPassRegister.text.toString(),
-                            "active"
+                            editTextDateRegister.text.toString().replace("/", "-"),
+                            gender
                         )
-                    val retrofit = Retrofit.Builder()
-                        .baseUrl("https://gorest.co.in")
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build()
-
-                    val service = retrofit.create(ApiServices::class.java)
-
-                    service.createUser(user).enqueue(object : Callback<BaseModel> {
-                        override fun onResponse(
-                            call: Call<BaseModel>,
-                            response: Response<BaseModel>
-                        ) {
-                            if (response.body()?._meta?.code!!.toInt() >= 300) {
-                                buttonSaveRegister.isEnabled=true
-                                alert.setTitle("Error")
-                                alert.setMessage(
-                                    commonFunctions.getErrorMessage(response.body()?._meta?.code.toString(),
-                                        response.body()!!.result.get(0).message))
-                                alert.setPositiveButton(
-                                    "Confirmar", null
-                                )
-                                alert.show()
-                            } else {
-                                toastAlertRegistration()
-                                backActivity()
-                            }
-                        }
-
-                        override fun onFailure(call: Call<BaseModel>, t: Throwable) {
-                            toastAlertRegistration()
-                            backActivity()
-                        }
-                    })
-
+                    var userDAO : UserDAO = SesionRoom.database.UserDAO()
+                    userDAO.insertUser(usuario)
+                    toastAlertRegistration()
+                    backActivity()
                 }
-            }else{
+           /* }else{
                 val commonFunctions = CommonFunctions()
                 alert.setTitle(constants.ERROR_TITLE)
                 alert.setMessage(commonFunctions.getErrorMessage("402", ""))
                 alert.setPositiveButton("Confirmar", null)
                 alert.show()
-            }
+            }*/
         }
 
     }

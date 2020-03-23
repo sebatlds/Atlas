@@ -58,7 +58,17 @@
                 android:text="@string/checkbox_women"
                 android:textColor="@color/white"
                 android:buttonTint="@color/colorPrimaryDark"/>
+
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btn_save_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/save"
+            android:textSize="20dp"
+            android:background="@drawable/border_buttons"/>
     </LinearLayout>
 </RelativeLayout>
