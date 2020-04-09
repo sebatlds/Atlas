@@ -118,7 +118,8 @@
                 android:clickable="true"
                 android:layout_margin="@dimen/fab_margin"
                 android:background="@drawable/border_buttons"
-                app:srcCompat="@android:drawable/ic_menu_edit" />
+                app:srcCompat="@android:drawable/ic_menu_edit"
+                android:visibility="visible"/>
         </LinearLayout>
 
     </ScrollView>

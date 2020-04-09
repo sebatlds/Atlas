@@ -14,10 +14,14 @@ class ReciclerViewAdapter(context : Context, listCountries : List<Countries>) : 
 
     var listCountries = emptyList<Countries>()
     var context : Context
+    private var onItemClickListener: OnItemClickListener
+    private var onLongClickListener: OnLongClickListener
 
     init{
         this.listCountries = listCountries
         this.context = context
+        this.onItemClickListener = onItemClickListener
+        this.onLongClickListener = onLongClickListener
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -47,8 +51,16 @@ class ReciclerViewAdapter(context : Context, listCountries : List<Countries>) : 
     }
 
 
-    fun getItem(position: Int): Countries? {
-        return listCountries?.get(position)
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
     }
 
+
+    interface OnItemClickListener {
+        fun onItemClick(countries: Countries)
+    }
+
+    interface OnLongClickListener {
+        fun onLongClick(country: Countries)
+    }
 }

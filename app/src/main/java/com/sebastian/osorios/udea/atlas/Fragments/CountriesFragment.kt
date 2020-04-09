@@ -92,7 +92,6 @@ class CountriesFragment : Fragment() {
 
 
 
-
         return root
     }
 
