@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         val imageView : CircleImageView = view.findViewById(R.id.imageViewCircle)
         navView.addHeaderView(view)
         val authType = intent.getStringExtra("auth")
-        if(authType.equals("email")){
+       /* if(authType.equals("email")){
             imageView.setImageResource(R.drawable.images)
             email = intent.getStringExtra("email")
             database = FirebaseDatabase.getInstance()
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
 
         if(AccessToken.getCurrentAccessToken() == null){
             goLanding()
-        }
+        }*/
 
 
 
