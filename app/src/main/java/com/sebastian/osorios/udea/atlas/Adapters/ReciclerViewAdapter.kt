@@ -2,15 +2,19 @@ package com.sebastian.osorios.udea.atlas.Adapters
 
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.sebastian.osorios.udea.atlas.Models.Countries.Countries
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.Toast
+import com.sebastian.osorios.udea.atlas.Activitys.CountryActivity
 import com.sebastian.osorios.udea.atlas.R
 import kotlinx.android.synthetic.main.list_view_item.view.*
 import retrofit2.Callback
+import java.io.Serializable
 
 class ReciclerViewAdapter(
     context: Context, listCountries: List<Countries>
@@ -35,7 +39,10 @@ class ReciclerViewAdapter(
        return listCountries.size
     }
 
-    override fun onBindViewHolder(holder: ReciclerViewAdapter.CountriesViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ReciclerViewAdapter.CountriesViewHolder,
+        position: Int
+    ) {
         val countries = listCountries[position]
         holder.bindCountry(countries)
     }
@@ -59,9 +66,9 @@ class ReciclerViewAdapter(
             itemView.imageViewFlag.setImageResource(R.drawable.images)
             itemView.setOnClickListener{
                 Toast.makeText(context,country.name,Toast.LENGTH_SHORT).show()
-                //var intent = Intent(context,activitydestino)
-                //intent.putExtra("country",countries).addFlags(FLAG_ACTIVITY_NEW_TASK)
-                //context.startActivity(intent)
+                val intent = Intent(context, CountryActivity::class.java)
+                intent.putExtra("country",country)
+                context.startActivity(intent)
             }
             itemView.setOnLongClickListener{
                 Toast.makeText(context,countries!!.name+"LONG",Toast.LENGTH_SHORT).show()

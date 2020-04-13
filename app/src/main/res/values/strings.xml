@@ -38,5 +38,9 @@
     <string name="menu_send">Send</string>
     <string name="facebook_app_id">671402080347613</string>
     <string name="fb_login_protocol_scheme">fb671402080347613</string>
+    <string name="title_activity_country">CountryActivity</string>
+    <string name="tab_text_1">Caracteristicas</string>
+    <string name="tab_text_2">Otras Caracteristicas</string>
+    <string name="tab_text_3">Geolocalizacion</string>
 </resources>
 
