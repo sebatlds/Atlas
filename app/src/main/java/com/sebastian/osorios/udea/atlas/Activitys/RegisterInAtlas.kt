@@ -14,24 +14,27 @@ import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
 import com.sebastian.osorios.udea.atlas.R
 import java.util.Calendar
 import android.app.DatePickerDialog
-import com.sebastian.osorios.udea.atlas.Interfaces.UserDAO
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.sebastian.osorios.udea.atlas.Models.User.Usuario
-import com.sebastian.osorios.udea.atlas.DB.SesionRoom
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.sql.Types.NULL
 
 
 class RegisterInAtlas : AppCompatActivity(){
 
 
     val constants = Constants()
-    val commonFunctions = CommonFunctions()
+    lateinit var auth : FirebaseAuth
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_in_atlas)
         val buttonSaveRegister : Button = findViewById(R.id.saveRegister)
+        auth = FirebaseAuth.getInstance()
         var editTextNameRegister : EditText = findViewById(R.id.name)
         var editTextLastNameRegister : EditText = findViewById(R.id.last_name)
         var editTextEmailRegister : EditText = findViewById(R.id.email)
@@ -80,7 +83,7 @@ class RegisterInAtlas : AppCompatActivity(){
         }
 
         buttonSaveRegister.setOnClickListener {
-           // if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)){
+            if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)){
                 buttonSaveRegister.isEnabled=false
                 if (editTextEmailRegister.text.toString().equals("") || editTextPassRegister.text.toString().equals("") ||
                     editTextNameRegister.text.toString().equals("") ||
@@ -113,43 +116,48 @@ class RegisterInAtlas : AppCompatActivity(){
                     buttonSaveRegister.isEnabled= true
                 }
                 else {
-                    /**
-                     * Se arma el json
-                     */
                     var gender: String;
                     if (radioButtonMenRegister.isChecked) {
                         gender = "Hombre"
                     } else {
                         gender = "Mujer"
                     }
-                    val usuario =
-                        Usuario(
-                            NULL,
-                            editTextEmailRegister.text.toString(),
-                            editTextNameRegister.text.toString(),
-                            editTextLastNameRegister.text.toString(),
-                            editTextPassRegister.text.toString(),
-                            editTextDateRegister.text.toString().replace("/", "-"),
-                            gender
-                        )
-                    var userDAO : UserDAO = SesionRoom.database.UserDAO()
-                    userDAO.insertUser(usuario)
-                    toastAlertRegistration()
-                    backActivity()
+                    createUser(editTextEmailRegister.text.toString(),editTextPassRegister.text.toString(),gender)
                 }
-           /* }else{
+            }else{
                 val commonFunctions = CommonFunctions()
                 alert.setTitle(constants.ERROR_TITLE)
                 alert.setMessage(commonFunctions.getErrorMessage("402", ""))
                 alert.setPositiveButton("Confirmar", null)
                 alert.show()
-            }*/
+            }
         }
 
     }
 
-
-
+    fun createUser(email : String , password : String,gender : String){
+        auth.createUserWithEmailAndPassword(email,password)
+            .addOnCompleteListener(this){task ->
+                if(task.isSuccessful){
+                    val database = FirebaseDatabase.getInstance()
+                    var myRef = database.getReference("usuarios")
+                    var id = myRef.push().key
+                    val usuario = Usuario(
+                        id!!,
+                        email,
+                        findViewById<EditText>(R.id.name).text.toString(),
+                        findViewById<EditText>(R.id.last_name).text.toString(),
+                        findViewById<EditText>(R.id.EditTextdate).text.toString(),
+                        gender
+                    )
+                    myRef.child(id).setValue(usuario)
+                    backActivity()
+                }else{
+                    Toast.makeText(this,"Error al registrar el usuario",Toast.LENGTH_SHORT)
+                    findViewById<Button>(R.id.saveRegister).isEnabled=true
+                }
+            }
+    }
 
     fun backActivity() {
         val intento = Intent(this, LandingActivity::class.java)

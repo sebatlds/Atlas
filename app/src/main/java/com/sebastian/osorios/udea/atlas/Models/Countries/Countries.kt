@@ -1,7 +1,12 @@
 package com.sebastian.osorios.udea.atlas.Models.Countries
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-data class Countries (
+import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
+
+
+class Countries  (
     @SerializedName("name") val name : String,
     @SerializedName("topLevelDomain") val topLevelDomain : List<String>,
     @SerializedName("alpha2Code") val alpha2Code : String,
@@ -25,6 +30,6 @@ data class Countries (
     @SerializedName("flag") val flag : String,
     //@SerializedName("regionalBlocs") val regionalBlocs : List<RegionalBlocs>,
     @SerializedName("cioc") val cioc : String
-)
+) : Serializable
 
 

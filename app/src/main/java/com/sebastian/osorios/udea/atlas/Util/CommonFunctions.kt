@@ -22,13 +22,13 @@ class CommonFunctions {
                 return "Verifique su conexion a internet."
             }
             "403"->{
-                return "El email ingresado, no se encuentra registrado."
+                return "El usuario ingresado, no se encuentra registrado."
             }
             "404"->{
                 return "El recurso solicitado no existe."
             }
             "405"->{
-                return "Contraseña incorrecta."
+                return "Verifique los datos ingresados."
             }
             "422"->{
                 if(body.equals("user must have atleast 11 years to have an account")){

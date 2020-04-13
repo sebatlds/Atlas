@@ -34,8 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:padding="10dp"
-                android:layout_gravity="end"
-                android:gravity="end"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <Button
@@ -53,7 +52,22 @@
                     android:layout_height="wrap_content"
                     android:text="@string/register"
                     android:background="@drawable/border_buttons"/>
+
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/login_with_fb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    tools:ignore="MissingConstraints"/>
+
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/sign_in_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"/>
+
             </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/linearLyaout"

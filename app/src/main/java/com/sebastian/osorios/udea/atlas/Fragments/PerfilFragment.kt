@@ -8,24 +8,26 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
 import com.sebastian.osorios.udea.atlas.Activitys.EditPerfil
-import com.sebastian.osorios.udea.atlas.Activitys.LandingActivity
-import com.sebastian.osorios.udea.atlas.Activitys.MainActivity
-import com.sebastian.osorios.udea.atlas.Interfaces.UserDAO
-import com.sebastian.osorios.udea.atlas.Models.User.Usuario
 import com.sebastian.osorios.udea.atlas.R
-import com.sebastian.osorios.udea.atlas.DB.SesionRoom
-import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import com.sebastian.osorios.udea.atlas.Util.Constants
+import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class PerfilFragment : Fragment() {
 
 
     var linearLayoutGenero : LinearLayout? = null
-
+    private lateinit var database: FirebaseDatabase
+    private lateinit var myRef : DatabaseReference
+    private lateinit var email : String
+    private lateinit var id : String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,37 +44,59 @@ class PerfilFragment : Fragment() {
         var textViewDate : TextView = root.findViewById(R.id.perfil_date)
         var textViewGenero : TextView = root.findViewById(R.id.genero_perfil)
         var imageViewGenero : ImageView = root.findViewById(R.id.imageView_genero)
-        var id  = intent.getStringExtra("id")
-        val userDAO : UserDAO = SesionRoom.database.UserDAO()
-        val user : Usuario = userDAO.searchUserId(id.toInt())
-        var gender : String
-        if(user != null){
-            var name = user.name
-            var lastName = user.lastName
-            var email = user.email
-            var date = user.date
-            if(user.gender.equals("Hombre")){
-                imageViewGenero.setImageResource(R.drawable.macho)
-                gender = "Hombre"
-            }else{
-                imageViewGenero.setImageResource(R.drawable.femenino)
-                gender = "Mujer"
+        var imagePerfil : CircleImageView = root.findViewById(R.id.imagePerfil)
+        var auth = intent.getStringExtra("auth")
+        if(auth.equals("email")){
+            email = intent.getStringExtra("email")
+            database = FirebaseDatabase.getInstance()
+            myRef = database.getReference("usuarios")
+            val postListener = object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    for(snapshot: DataSnapshot in dataSnapshot.children){
+                        val map : DataSnapshot = snapshot
+                        if(email.equals(map.child("email").value)){
+                            System.out.println("%%% "+map.child("name").value.toString() + " " + map.child("lastName").value.toString())
+                            textViewEmail.text = email
+                            textViewName.text = map.child("name").value.toString()
+                            textViewLastName.text = map.child("lastName").value.toString()
+                            textViewDate.text = map.child("date").value.toString()
+                            textViewGenero.text = map.child("gender").value.toString()
+                            id = map.child("id").value.toString()
+                            if(map.child("gender").value.toString().equals("Hombre")){
+                                imageViewGenero.setImageResource(R.drawable.macho)
+                            }else{
+                                imageViewGenero.setImageResource(R.drawable.femenino)
+                            }
+                        }
+                    }
+                }
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
             }
-            textViewName.text = name
-            textViewLastName.text = lastName
-            textViewEmail.text = email
-            textViewDate.text = date
-            textViewGenero.text = gender
+            myRef.addValueEventListener(postListener)
+
+
         }else{
-            val commonFunctions : CommonFunctions = CommonFunctions()
-            Toast.makeText(context,commonFunctions.getErrorMessage("502",""),Toast.LENGTH_LONG)
-            val intento = Intent(context, LandingActivity ::class.java)
-            startActivity(intento)
+            var firebaseUser : FirebaseUser? = FirebaseAuth.getInstance().currentUser
+            if(firebaseUser != null){
+                val indexs = firebaseUser.displayName.toString().split(" ")
+                textViewName.text = indexs.get(0)
+                textViewLastName.text = indexs.get(1)
+                textViewEmail.text  = firebaseUser.email.toString()
+                Picasso.get().load(firebaseUser.photoUrl).into(imagePerfil)
+            }
+            iconEdit!!.isVisible = false
         }
 
         iconEdit?.setOnClickListener(){
             val constants = Constants()
             val intent = Intent(this.context , EditPerfil::class.java)
+            intent.putExtra("email",email)
+            intent.putExtra("name",textViewName.text)
+            intent.putExtra("lastName",textViewLastName.text)
+            intent.putExtra("gender",textViewGenero.text)
+            intent.putExtra("date",textViewDate.text)
             intent.putExtra("id",id)
             startActivity(intent)
             startActivityForResult(intent,constants.REQUEST_CODE)
