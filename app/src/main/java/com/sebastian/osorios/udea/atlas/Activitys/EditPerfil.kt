@@ -44,6 +44,17 @@ class EditPerfil : AppCompatActivity() {
             intent?.getStringExtra("date").toString(),
             intent?.getStringExtra("gender").toString()
         )
+
+        checkMenEdit.setOnClickListener {
+            checkMenEdit.isChecked = true
+            checkWomenEdit.isChecked = false
+        }
+
+        checkWomenEdit.setOnClickListener {
+            checkMenEdit.isChecked = false
+            checkWomenEdit.isChecked = true
+        }
+
         nameEdit.hint = usuario.name
         lastName.hint = usuario.lastName
         dateEdit.hint = usuario.date
@@ -83,12 +94,13 @@ class EditPerfil : AppCompatActivity() {
             val childUpdates = HashMap<String,Any>()
             childUpdates["email"]= email
             childUpdates["name"]=name
-            childUpdates["last_name"]=lastNameEdit
+            childUpdates["lastName"]=lastNameEdit
             childUpdates["date"]=date
             childUpdates["gender"]=gender
             myRef.child(usuario.id).updateChildren(childUpdates)
             Toast.makeText(this,"Actualización conrrecta",Toast.LENGTH_SHORT).show()
             val intent = Intent(applicationContext ,MainActivity::class.java)
+            intent.putExtra("auth","email")
             intent.putExtra("email",email)
             startActivity(intent)
             finish()

@@ -7,21 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d9bbf7-2f43-491e-9e93-3e15c388c1ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CharacteristFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/OthersFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/ui/main/PageViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/ui/main/PlaceholderFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/ui/main/SectionsPagerAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/border.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_country.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_characterist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_country.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_geolocation.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_others.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -30,24 +15,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amitshekhar_android_debug_db_1_0_6_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amitshekhar_android_debug_db_base_1_0_6_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Models/Countries/Countries.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Models/Countries/Countries.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Models/Countries/Translations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Models/Countries/Translations.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/PerfilFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/PerfilFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/sessions/kotlin-compiler-8341042067720641559.salive" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -319,6 +296,12 @@
           <properties class="com.sebastian.osorios.udea.atlas.Exceptions.ErrorMesagge" method="getMessage" />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>138</line>
+          <properties class="com.sebastian.osorios.udea.atlas.Activitys.MainActivity" method="backToActivityLanding" />
+          <option name="timeStamp" value="912" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
           <line>79</line>
@@ -466,87 +449,72 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>71</line>
+          <line>82</line>
           <option name="timeStamp" value="369" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>73</line>
+          <line>84</line>
           <option name="timeStamp" value="370" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>76</line>
+          <line>87</line>
           <option name="timeStamp" value="371" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>77</line>
+          <line>88</line>
           <option name="timeStamp" value="372" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>79</line>
+          <line>90</line>
           <option name="timeStamp" value="373" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>81</line>
+          <line>92</line>
           <option name="timeStamp" value="374" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>93</line>
-          <option name="timeStamp" value="376" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>94</line>
-          <option name="timeStamp" value="377" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>95</line>
-          <option name="timeStamp" value="380" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>57</line>
+          <line>68</line>
           <option name="timeStamp" value="382" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>59</line>
+          <line>70</line>
           <option name="timeStamp" value="384" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>61</line>
+          <line>72</line>
           <option name="timeStamp" value="385" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>62</line>
+          <line>73</line>
           <option name="timeStamp" value="386" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>64</line>
+          <line>75</line>
           <option name="timeStamp" value="387" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>67</line>
+          <line>78</line>
           <option name="timeStamp" value="388" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>66</line>
+          <line>77</line>
           <option name="timeStamp" value="389" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>69</line>
+          <line>80</line>
           <option name="timeStamp" value="393" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -558,21 +526,6 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/RegisterInAtlas.kt</url>
           <line>86</line>
           <option name="timeStamp" value="396" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>99</line>
-          <option name="timeStamp" value="402" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>98</line>
-          <option name="timeStamp" value="403" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>100</line>
-          <option name="timeStamp" value="404" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/RegisterInAtlas.kt</url>
@@ -610,11 +563,6 @@
           <option name="timeStamp" value="513" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>102</line>
-          <option name="timeStamp" value="524" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Util/ReadDatabase.kt</url>
           <line>22</line>
           <option name="timeStamp" value="598" />
@@ -631,12 +579,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>95</line>
+          <line>96</line>
           <option name="timeStamp" value="601" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>96</line>
+          <line>97</line>
           <option name="timeStamp" value="604" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -711,133 +659,103 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>46</line>
+          <line>57</line>
           <option name="timeStamp" value="641" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>47</line>
+          <line>58</line>
           <option name="timeStamp" value="642" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>48</line>
+          <line>59</line>
           <option name="timeStamp" value="643" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>82</line>
+          <line>93</line>
           <option name="timeStamp" value="644" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>87</line>
+          <line>98</line>
           <option name="timeStamp" value="645" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>88</line>
+          <line>99</line>
           <option name="timeStamp" value="646" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
-          <line>89</line>
+          <line>100</line>
           <option name="timeStamp" value="647" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>52</line>
-          <option name="timeStamp" value="649" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>54</line>
-          <option name="timeStamp" value="655" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>56</line>
-          <option name="timeStamp" value="660" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>61</line>
-          <option name="timeStamp" value="661" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>159</line>
+          <line>162</line>
           <option name="timeStamp" value="662" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>228</line>
+          <line>236</line>
           <option name="timeStamp" value="663" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>229</line>
+          <line>237</line>
           <option name="timeStamp" value="664" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>233</line>
+          <line>241</line>
           <option name="timeStamp" value="665" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>155</line>
+          <line>158</line>
           <option name="timeStamp" value="669" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>201</line>
+          <line>209</line>
           <option name="timeStamp" value="670" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>213</line>
+          <line>221</line>
           <option name="timeStamp" value="671" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>217</line>
+          <line>225</line>
           <option name="timeStamp" value="672" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>218</line>
+          <line>226</line>
           <option name="timeStamp" value="673" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>222</line>
+          <line>230</line>
           <option name="timeStamp" value="674" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>223</line>
+          <line>231</line>
           <option name="timeStamp" value="675" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>255</line>
-          <option name="timeStamp" value="676" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>257</line>
+          <line>265</line>
           <option name="timeStamp" value="677" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>258</line>
+          <line>266</line>
           <option name="timeStamp" value="678" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>58</line>
-          <option name="timeStamp" value="680" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
@@ -846,67 +764,57 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>91</line>
-          <option name="timeStamp" value="694" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>94</line>
+          <line>95</line>
           <option name="timeStamp" value="695" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>256</line>
+          <line>264</line>
           <option name="timeStamp" value="696" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>90</line>
-          <option name="timeStamp" value="697" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>118</line>
+          <line>119</line>
           <option name="timeStamp" value="708" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>119</line>
+          <line>120</line>
           <option name="timeStamp" value="709" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>124</line>
+          <line>125</line>
           <option name="timeStamp" value="710" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>125</line>
+          <line>126</line>
           <option name="timeStamp" value="711" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>126</line>
+          <line>127</line>
           <option name="timeStamp" value="712" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>138</line>
+          <line>139</line>
           <option name="timeStamp" value="713" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>139</line>
+          <line>141</line>
           <option name="timeStamp" value="714" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>147</line>
+          <line>149</line>
           <option name="timeStamp" value="715" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>148</line>
+          <line>150</line>
           <option name="timeStamp" value="716" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -926,63 +834,53 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>127</line>
+          <line>128</line>
           <option name="timeStamp" value="725" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>128</line>
+          <line>129</line>
           <option name="timeStamp" value="726" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
-          <line>140</line>
+          <line>142</line>
           <option name="timeStamp" value="727" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>158</line>
+          <line>161</line>
           <option name="timeStamp" value="728" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>232</line>
+          <line>240</line>
           <option name="timeStamp" value="729" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>175</line>
+          <line>178</line>
           <option name="timeStamp" value="730" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>176</line>
+          <line>179</line>
           <option name="timeStamp" value="731" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>177</line>
+          <line>185</line>
           <option name="timeStamp" value="732" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>59</line>
-          <option name="timeStamp" value="733" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>231</line>
+          <line>239</line>
           <option name="timeStamp" value="735" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>239</line>
+          <line>247</line>
           <option name="timeStamp" value="739" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>57</line>
-          <option name="timeStamp" value="749" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
@@ -1031,158 +929,123 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>204</line>
+          <line>212</line>
           <option name="timeStamp" value="769" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>205</line>
+          <line>213</line>
           <option name="timeStamp" value="772" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>207</line>
+          <line>215</line>
           <option name="timeStamp" value="773" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>206</line>
+          <line>214</line>
           <option name="timeStamp" value="774" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>271</line>
+          <line>279</line>
           <option name="timeStamp" value="775" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>272</line>
+          <line>280</line>
           <option name="timeStamp" value="776" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>274</line>
-          <option name="timeStamp" value="777" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>210</line>
+          <line>218</line>
           <option name="timeStamp" value="778" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>74</line>
-          <option name="timeStamp" value="779" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>75</line>
-          <option name="timeStamp" value="780" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>76</line>
-          <option name="timeStamp" value="781" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>77</line>
-          <option name="timeStamp" value="782" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>183</line>
+          <line>191</line>
           <option name="timeStamp" value="783" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>184</line>
+          <line>192</line>
           <option name="timeStamp" value="784" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>186</line>
+          <line>194</line>
           <option name="timeStamp" value="785" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>187</line>
+          <line>195</line>
           <option name="timeStamp" value="786" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>189</line>
+          <line>197</line>
           <option name="timeStamp" value="787" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>190</line>
+          <line>198</line>
           <option name="timeStamp" value="788" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>192</line>
+          <line>200</line>
           <option name="timeStamp" value="789" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>194</line>
+          <line>202</line>
           <option name="timeStamp" value="790" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>242</line>
+          <line>250</line>
           <option name="timeStamp" value="791" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>243</line>
+          <line>251</line>
           <option name="timeStamp" value="792" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>244</line>
+          <line>252</line>
           <option name="timeStamp" value="793" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>246</line>
+          <line>254</line>
           <option name="timeStamp" value="794" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>248</line>
+          <line>256</line>
           <option name="timeStamp" value="795" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>202</line>
+          <line>210</line>
           <option name="timeStamp" value="796" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>203</line>
+          <line>211</line>
           <option name="timeStamp" value="797" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
+        <line-breakpoint enabled="true" suspend="ALL" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>157</line>
-          <option name="timeStamp" value="798" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
-          <line>273</line>
+          <line>281</line>
           <option name="timeStamp" value="799" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt</url>
           <line>70</line>
           <option name="timeStamp" value="801" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt</url>
-          <line>64</line>
-          <option name="timeStamp" value="804" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt</url>
@@ -1201,12 +1064,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt</url>
-          <line>68</line>
+          <line>70</line>
           <option name="timeStamp" value="810" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt</url>
-          <line>70</line>
+          <line>72</line>
           <option name="timeStamp" value="814" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -1241,12 +1104,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt</url>
-          <line>67</line>
+          <line>69</line>
           <option name="timeStamp" value="828" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt</url>
-          <line>69</line>
+          <line>71</line>
           <option name="timeStamp" value="830" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -1293,6 +1156,256 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CharacteristFragment.kt</url>
           <line>26</line>
           <option name="timeStamp" value="840" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>49</line>
+          <option name="timeStamp" value="841" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>55</line>
+          <option name="timeStamp" value="842" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>57</line>
+          <option name="timeStamp" value="843" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>59</line>
+          <option name="timeStamp" value="844" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>60</line>
+          <option name="timeStamp" value="845" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>270</line>
+          <option name="timeStamp" value="850" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>271</line>
+          <option name="timeStamp" value="851" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>272</line>
+          <option name="timeStamp" value="852" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>273</line>
+          <option name="timeStamp" value="853" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>274</line>
+          <option name="timeStamp" value="854" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>275</line>
+          <option name="timeStamp" value="855" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>61</line>
+          <option name="timeStamp" value="869" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>62</line>
+          <option name="timeStamp" value="870" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>63</line>
+          <option name="timeStamp" value="875" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>64</line>
+          <option name="timeStamp" value="876" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>65</line>
+          <option name="timeStamp" value="877" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>95</line>
+          <option name="timeStamp" value="882" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>98</line>
+          <option name="timeStamp" value="891" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>99</line>
+          <option name="timeStamp" value="892" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>102</line>
+          <option name="timeStamp" value="894" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>160</line>
+          <option name="timeStamp" value="896" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>176</line>
+          <option name="timeStamp" value="897" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>93</line>
+          <option name="timeStamp" value="905" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>94</line>
+          <option name="timeStamp" value="906" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>86</line>
+          <option name="timeStamp" value="907" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>147</line>
+          <option name="timeStamp" value="909" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>148</line>
+          <option name="timeStamp" value="910" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>140</line>
+          <option name="timeStamp" value="911" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>100</line>
+          <option name="timeStamp" value="913" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>101</line>
+          <option name="timeStamp" value="914" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>180</line>
+          <option name="timeStamp" value="915" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>67</line>
+          <option name="timeStamp" value="916" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>68</line>
+          <option name="timeStamp" value="917" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>69</line>
+          <option name="timeStamp" value="918" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>70</line>
+          <option name="timeStamp" value="919" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>45</line>
+          <option name="timeStamp" value="920" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>46</line>
+          <option name="timeStamp" value="921" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>47</line>
+          <option name="timeStamp" value="922" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>103</line>
+          <option name="timeStamp" value="923" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>71</line>
+          <option name="timeStamp" value="924" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>183</line>
+          <option name="timeStamp" value="925" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
+          <line>263</line>
+          <option name="timeStamp" value="926" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>89</line>
+          <option name="timeStamp" value="927" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt</url>
+          <line>88</line>
+          <option name="timeStamp" value="928" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/PerfilFragment.kt</url>
+          <line>98</line>
+          <option name="timeStamp" value="929" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
+          <line>101</line>
+          <option name="timeStamp" value="930" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
+          <line>102</line>
+          <option name="timeStamp" value="931" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
+          <line>103</line>
+          <option name="timeStamp" value="932" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
+          <line>104</line>
+          <option name="timeStamp" value="933" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/EditPerfil.kt</url>
+          <line>105</line>
+          <option name="timeStamp" value="934" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

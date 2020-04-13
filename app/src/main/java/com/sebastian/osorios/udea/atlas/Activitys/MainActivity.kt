@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         val imageView : CircleImageView = view.findViewById(R.id.imageViewCircle)
         navView.addHeaderView(view)
         val authType = intent.getStringExtra("auth")
-       /* if(authType.equals("email")){
+        if(authType.equals("email")){
             imageView.setImageResource(R.drawable.images)
             email = intent.getStringExtra("email")
             database = FirebaseDatabase.getInstance()
@@ -86,11 +86,12 @@ class MainActivity : AppCompatActivity() {
                 textViewEmail.text  = firebaseUser.email.toString()
                 val picasso = Picasso.get().load(firebaseUser.photoUrl).into(imageView)
             }
+            if(AccessToken.getCurrentAccessToken() == null){
+                goLanding()
+            }
+
         }
 
-        if(AccessToken.getCurrentAccessToken() == null){
-            goLanding()
-        }*/
 
 
 
@@ -137,6 +138,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun backToActivityLanding(){
         LoginManager.getInstance().logOut()
+        FirebaseAuth.getInstance().signOut()
         val intento = Intent(this, LandingActivity ::class.java)
         startActivity(intento)
         finish()
