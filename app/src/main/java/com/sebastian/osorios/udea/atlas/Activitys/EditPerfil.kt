@@ -5,86 +5,71 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import com.sebastian.osorios.udea.atlas.Interfaces.UserDAO
+import com.google.firebase.database.FirebaseDatabase
 import com.sebastian.osorios.udea.atlas.Models.User.Usuario
 import com.sebastian.osorios.udea.atlas.R
-import com.sebastian.osorios.udea.atlas.DB.SesionRoom
-import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
 import kotlinx.android.synthetic.main.activity_edit_perfil.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
+import kotlin.collections.HashMap
 
 class EditPerfil : AppCompatActivity() {
 
+    lateinit var email : String
+    lateinit var usuario : Usuario
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_perfil)
+        email = intent?.getStringExtra("email").toString()
+
         var checkMenEdit : RadioButton = findViewById(R.id.edit_chel_men)
         var checkWomenEdit : RadioButton = findViewById(R.id.edit_chel_women)
         var nameEdit : EditText = findViewById(R.id.edit_name)
         var lastName : EditText = findViewById(R.id.edit_last_name)
-        var emailEdit : EditText = findViewById(R.id.edit_email)
         var dateEdit : EditText = findViewById(R.id.edit_date)
-
-        var id: String  = intent?.getStringExtra("id").toString()
-        val userDAO : UserDAO = SesionRoom.database.UserDAO()
-        val usuario : Usuario = userDAO.searchUserId(id.toInt())
-
-        if(usuario != null){
-            nameEdit.hint = usuario.name
-            lastName.hint = usuario.lastName
-            emailEdit.hint = usuario.email
-            dateEdit.hint = usuario.date
-            if("Hombre".equals(usuario.gender)){
-                checkMenEdit.isChecked = true
-                checkWomenEdit.isChecked = false
-            }else{
-                checkMenEdit.isChecked = false
-                checkWomenEdit.isChecked = true
-            }
+        val database : FirebaseDatabase = FirebaseDatabase.getInstance()
+        var myRef = database.getReference("usuarios")
+        usuario = Usuario(
+            intent?.getStringExtra("id").toString(),
+            intent?.getStringExtra("email").toString(),
+            intent?.getStringExtra("name").toString(),
+            intent?.getStringExtra("lastName").toString(),
+            intent?.getStringExtra("date").toString(),
+            intent?.getStringExtra("gender").toString()
+        )
+        nameEdit.hint = usuario.name
+        lastName.hint = usuario.lastName
+        dateEdit.hint = usuario.date
+        if("Hombre".equals(usuario.gender)){
+            checkMenEdit.isChecked = true
+            checkWomenEdit.isChecked = false
         }else{
-            val btnEdit : Button = findViewById(R.id.btn_save_edit)
-            btnEdit.isEnabled= false
-            val commonFunctions : CommonFunctions = CommonFunctions()
-            Toast.makeText(this,commonFunctions.getErrorMessage("502",""), Toast.LENGTH_LONG ).show()
-            val intento = Intent(this, LandingActivity ::class.java)
-            startActivity(intento)
-            finish()
+            checkMenEdit.isChecked = false
+            checkWomenEdit.isChecked = true
         }
 
         btn_save_edit.setOnClickListener {
-            var userDAO : UserDAO = SesionRoom.database.UserDAO()
             var gender : String
             var name : String
             var lastNameEdit : String
-            var email : String
             var date : String
             if(nameEdit.text.toString().equals("")){
                 name = usuario.name
             }else{
                 name = nameEdit.text.toString()
             }
-
             if(lastName.text.toString().equals("")){
                 lastNameEdit = usuario.lastName
             }else{
                 lastNameEdit = lastName.text.toString()
             }
-
-            if(emailEdit.text.toString().equals("")){
-                email = usuario.email
-            }else{
-                email = emailEdit.text.toString()
-            }
-
             if(dateEdit.text.toString().equals("")){
                 date = usuario.date
             }else{
@@ -95,20 +80,16 @@ class EditPerfil : AppCompatActivity() {
             }else{
                 gender = "Mujer"
             }
-            val user : Unit = userDAO.updateUser(
-                Usuario(
-                    usuario.id,
-                    email,
-                    name,
-                    lastNameEdit,
-                    usuario.password,
-                    date,
-                    gender
-                )
-            )
+            val childUpdates = HashMap<String,Any>()
+            childUpdates["email"]= email
+            childUpdates["name"]=name
+            childUpdates["last_name"]=lastNameEdit
+            childUpdates["date"]=date
+            childUpdates["gender"]=gender
+            myRef.child(usuario.id).updateChildren(childUpdates)
             Toast.makeText(this,"Actualización conrrecta",Toast.LENGTH_SHORT).show()
             val intent = Intent(applicationContext ,MainActivity::class.java)
-            intent.putExtra("id",id)
+            intent.putExtra("email",email)
             startActivity(intent)
             finish()
         }
