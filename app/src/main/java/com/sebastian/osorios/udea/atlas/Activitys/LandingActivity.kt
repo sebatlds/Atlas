@@ -47,13 +47,15 @@ class LandingActivity : AppCompatActivity() {
     lateinit var firebaseAuthListener : FirebaseAuth.AuthStateListener
     val TAG : String = "LANDING_ACTIVITY"
     private var optLog : Int = 0
+    lateinit var email : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FacebookSdk.sdkInitialize(this)
 
         setContentView(R.layout.activity_landing)
-
+        FirebaseAuth.getInstance().signOut()
+        LoginManager.getInstance().logOut()
         callbackManager = CallbackManager.Factory.create()
         LoginFacebook = findViewById(R.id.login_with_fb)
         LoginFacebook.setReadPermissions(Arrays.asList("public_profile,email,user_birthday"))
@@ -92,6 +94,7 @@ class LandingActivity : AppCompatActivity() {
         btnContinue.setOnClickListener {
             val checkInternetConexion = CheckInternetConexion()
             btnContinue.isEnabled = false
+            optLog = 2
             if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)) {
                 val email : String = editTextUserLogin.text.toString()
                 auth.signInWithEmailAndPassword(email,editTextPassLogin.text.toString())
@@ -155,7 +158,7 @@ class LandingActivity : AppCompatActivity() {
 
         LoginFacebook.registerCallback(callbackManager,object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
-                optLog = 2
+                optLog = 1
                 handleFacebookAccesToken(result!!.accessToken)
                 goToMainActivity()
             }
@@ -175,7 +178,12 @@ class LandingActivity : AppCompatActivity() {
             override fun onAuthStateChanged(@NotNull firebaseAuth: FirebaseAuth) {
                 val user : FirebaseUser? = firebaseAuth.currentUser
                 if(user != null){
-                    goToMainActivity()
+                    if(optLog == 2){
+
+                    }else{
+                        goToMainActivity()
+                    }
+
                 }
             }
 

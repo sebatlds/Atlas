@@ -2,19 +2,21 @@ package com.sebastian.osorios.udea.atlas.Adapters
 
 import android.content.Context
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.ViewGroup
-import com.sebastian.osorios.udea.atlas.Models.Countries.Countries
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
+import com.larvalabs.svgandroid.SVG
+import com.larvalabs.svgandroid.SVGParser
 import com.sebastian.osorios.udea.atlas.Activitys.CountryActivity
+import com.sebastian.osorios.udea.atlas.Models.Countries.Countries
 import com.sebastian.osorios.udea.atlas.R
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_view_item.view.*
-import retrofit2.Callback
-import java.io.Serializable
+import java.io.InputStream
+import java.net.HttpURLConnection
+import java.net.URL
 
 class ReciclerViewAdapter(
     context: Context, listCountries: List<Countries>
@@ -69,10 +71,6 @@ class ReciclerViewAdapter(
                 val intent = Intent(context, CountryActivity::class.java)
                 intent.putExtra("country",country)
                 context.startActivity(intent)
-            }
-            itemView.setOnLongClickListener{
-                Toast.makeText(context,countries!!.name+"LONG",Toast.LENGTH_SHORT).show()
-                return@setOnLongClickListener true
             }
         }
 

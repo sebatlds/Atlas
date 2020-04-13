@@ -99,7 +99,7 @@ class PerfilFragment : Fragment() {
             intent.putExtra("date",textViewDate.text)
             intent.putExtra("id",id)
             startActivity(intent)
-            startActivityForResult(intent,constants.REQUEST_CODE)
+            //startActivityForResult(intent,constants.REQUEST_CODE)
         }
 
 
