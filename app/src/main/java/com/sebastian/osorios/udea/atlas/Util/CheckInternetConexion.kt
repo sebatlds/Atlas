@@ -10,7 +10,7 @@ class CheckInternetConexion {
         try {
             val ipProcess = runtime.exec("/system/bin/ping -c 1 $host")
             val exitValue = ipProcess.waitFor()
-            return exitValue == 1
+            return exitValue == 0
         }
         catch (e : UnknownHostException){
             return false

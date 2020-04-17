@@ -95,7 +95,7 @@ class LandingActivity : AppCompatActivity() {
             val checkInternetConexion = CheckInternetConexion()
             btnContinue.isEnabled = false
             optLog = 2
-            if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)) {
+           // if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)) {
                 val email : String = editTextUserLogin.text.toString()
                 auth.signInWithEmailAndPassword(email,editTextPassLogin.text.toString())
                     .addOnCompleteListener { task ->
@@ -122,7 +122,7 @@ class LandingActivity : AppCompatActivity() {
                         }
                     }
                 }
-            }else{
+          /*  }else{
                 btnContinue.isEnabled = true
                 val commonFunctions = CommonFunctions()
                 alert.setTitle(constants.ERROR_TITLE)
@@ -131,7 +131,7 @@ class LandingActivity : AppCompatActivity() {
                     "Confirmar", null
                 )
                 alert.show()
-            }
+            }*/
         }
 
 
