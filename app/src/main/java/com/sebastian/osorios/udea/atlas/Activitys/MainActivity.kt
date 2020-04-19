@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
         }else{
             var firebaseUser : FirebaseUser? = FirebaseAuth.getInstance().currentUser
-            if(firebaseUser != null){
+                if(firebaseUser != null){
                 textViewName.text = firebaseUser.displayName.toString()
                 textViewEmail.text  = firebaseUser.email.toString()
                 val picasso = Picasso.get().load(firebaseUser.photoUrl).into(imageView)

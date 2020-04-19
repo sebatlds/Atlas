@@ -83,7 +83,7 @@ class RegisterInAtlas : AppCompatActivity(){
         }
 
         buttonSaveRegister.setOnClickListener {
-            if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)){
+
                 buttonSaveRegister.isEnabled=false
                 if (editTextEmailRegister.text.toString().equals("") || editTextPassRegister.text.toString().equals("") ||
                     editTextNameRegister.text.toString().equals("") ||
@@ -124,13 +124,6 @@ class RegisterInAtlas : AppCompatActivity(){
                     }
                     createUser(editTextEmailRegister.text.toString(),editTextPassRegister.text.toString(),gender)
                 }
-            }else{
-                val commonFunctions = CommonFunctions()
-                alert.setTitle(constants.ERROR_TITLE)
-                alert.setMessage(commonFunctions.getErrorMessage("402", ""))
-                alert.setPositiveButton("Confirmar", null)
-                alert.show()
-            }
         }
 
     }

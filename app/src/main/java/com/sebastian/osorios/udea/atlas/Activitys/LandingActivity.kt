@@ -15,9 +15,6 @@ import android.text.method.*
 import android.util.Log
 import android.view.View
 import com.facebook.*
-import com.facebook.FacebookSdk.getApplicationContext
-import com.facebook.appevents.AppEventsLogger
-import com.facebook.login.Login
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
@@ -32,7 +29,6 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*
 import org.jetbrains.annotations.NotNull
-import org.json.JSONObject
 import java.util.*
 
 
@@ -54,34 +50,35 @@ class LandingActivity : AppCompatActivity() {
         FacebookSdk.sdkInitialize(this)
 
         setContentView(R.layout.activity_landing)
-        FirebaseAuth.getInstance().signOut()
+        //FirebaseAuth.getInstance().signOut()
         LoginManager.getInstance().logOut()
         callbackManager = CallbackManager.Factory.create()
         LoginFacebook = findViewById(R.id.login_with_fb)
         LoginFacebook.setReadPermissions(Arrays.asList("public_profile,email,user_birthday"))
         LoginFacebook.setReadPermissions(Arrays.asList("email"))
-        val googleButton : SignInButton = findViewById(R.id.sign_in_button)
-        val btnLogIn : Button = findViewById(R.id.login)
-        val btnRegister : Button = findViewById(R.id.register)
-        val btnContinue : Button = findViewById(R.id.continu)
-        val btnCancel : Button = findViewById(R.id.cancel)
-        val linearLayout : LinearLayout = findViewById(R.id.linearLyaout)
-        val linearLayoutButtons : LinearLayout = findViewById(R.id.linearLyaoutButtons)
-        val linearLayoutButtonLogin : LinearLayout = findViewById(R.id.buttonLogin)
-        var editTextUserLogin : EditText = findViewById(R.id.userLogin)
-        var editTextPassLogin : EditText = findViewById(R.id.passLogin)
-        var seePass : ImageView = findViewById(R.id.seePassword)
-        var noSeePass : ImageView = findViewById(R.id.NoseePassword)
+        val googleButton: SignInButton = findViewById(R.id.sign_in_button)
+        val btnLogIn: Button = findViewById(R.id.login)
+        val btnRegister: Button = findViewById(R.id.register)
+        val btnContinue: Button = findViewById(R.id.continu)
+        val btnCancel: Button = findViewById(R.id.cancel)
+        val linearLayout: LinearLayout = findViewById(R.id.linearLyaout)
+        val linearLayoutButtons: LinearLayout = findViewById(R.id.linearLyaoutButtons)
+        val linearLayoutButtonLogin: LinearLayout = findViewById(R.id.buttonLogin)
+        var editTextUserLogin: EditText = findViewById(R.id.userLogin)
+        var editTextPassLogin: EditText = findViewById(R.id.passLogin)
+        var seePass: ImageView = findViewById(R.id.seePassword)
+        var noSeePass: ImageView = findViewById(R.id.NoseePassword)
         val alert = AlertDialog.Builder(this)
 
-        val gso : GoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
+        val gso: GoogleSignInOptions =
+            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
 
         btnLogIn.setOnClickListener {
-            linearLayout.isVisible= true
-            linearLayoutButtonLogin.isVisible  = true
+            linearLayout.isVisible = true
+            linearLayoutButtonLogin.isVisible = true
             linearLayoutButtons.isVisible = false
         }
 
@@ -95,44 +92,37 @@ class LandingActivity : AppCompatActivity() {
             val checkInternetConexion = CheckInternetConexion()
             btnContinue.isEnabled = false
             optLog = 2
-           // if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)) {
-                val email : String = editTextUserLogin.text.toString()
-                auth.signInWithEmailAndPassword(email,editTextPassLogin.text.toString())
-                    .addOnCompleteListener { task ->
-                    if (task.isSuccessful){
-                        val user : FirebaseUser? = auth.currentUser
+
+            val email: String = editTextUserLogin.text.toString()
+            auth.signInWithEmailAndPassword(email, editTextPassLogin.text.toString())
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val user: FirebaseUser? = auth.currentUser
                         goToMain(user!!)
-                    }else{
-                        if(task.exception!!.message.equals("There is no user record corresponding to this identifier. The user may have been deleted.")){
+                    } else {
+                        if (task.exception!!.message.equals("There is no user record corresponding to this identifier. The user may have been deleted.")) {
                             btnContinue.isEnabled = true
                             val commonFunctions = CommonFunctions()
                             alert.setTitle(constants.ERROR_TITLE)
                             alert.setMessage(
-                                commonFunctions.getErrorMessage("403", ""))
+                                commonFunctions.getErrorMessage("403", "")
+                            )
                             alert.setPositiveButton("Confirmar", null)
                             alert.show()
-                        }else{
+                        } else {
                             btnContinue.isEnabled = true
                             val commonFunctions = CommonFunctions()
                             alert.setTitle(constants.ERROR_TITLE)
                             alert.setMessage(
-                                commonFunctions.getErrorMessage("405", ""))
+                                commonFunctions.getErrorMessage("405", "")
+                            )
                             alert.setPositiveButton("Confirmar", null)
                             alert.show()
                         }
                     }
                 }
-          /*  }else{
-                btnContinue.isEnabled = true
-                val commonFunctions = CommonFunctions()
-                alert.setTitle(constants.ERROR_TITLE)
-                alert.setMessage(commonFunctions.getErrorMessage("402", ""))
-                alert.setPositiveButton(
-                    "Confirmar", null
-                )
-                alert.show()
-            }*/
         }
+
 
 
         btnCancel.setOnClickListener {
@@ -156,7 +146,7 @@ class LandingActivity : AppCompatActivity() {
         }
 
 
-        LoginFacebook.registerCallback(callbackManager,object : FacebookCallback<LoginResult> {
+        LoginFacebook.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
                 optLog = 1
                 handleFacebookAccesToken(result!!.accessToken)
@@ -174,13 +164,13 @@ class LandingActivity : AppCompatActivity() {
 
         })
         auth = FirebaseAuth.getInstance()
-        firebaseAuthListener = object : FirebaseAuth.AuthStateListener{
+        firebaseAuthListener = object : FirebaseAuth.AuthStateListener {
             override fun onAuthStateChanged(@NotNull firebaseAuth: FirebaseAuth) {
-                val user : FirebaseUser? = firebaseAuth.currentUser
-                if(user != null){
-                    if(optLog == 2){
+                val user: FirebaseUser? = firebaseAuth.currentUser
+                if (user != null) {
+                    if (optLog == 2) {
 
-                    }else{
+                    } else {
                         goToMainActivity()
                     }
 
@@ -190,22 +180,22 @@ class LandingActivity : AppCompatActivity() {
         }
 
         mGoogleApiClient = GoogleApiClient.Builder(applicationContext)
-                .enableAutoManage(this, object  : GoogleApiClient.OnConnectionFailedListener{
-                    override fun onConnectionFailed(@NotNull connectionResult : ConnectionResult) {
-                        Toast.makeText(this@LandingActivity,"Error Login",Toast.LENGTH_SHORT)
-                    }
-                })
-            .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
+            .enableAutoManage(this, object : GoogleApiClient.OnConnectionFailedListener {
+                override fun onConnectionFailed(@NotNull connectionResult: ConnectionResult) {
+                    Toast.makeText(this@LandingActivity, "Error Login", Toast.LENGTH_SHORT)
+                }
+            })
+            .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
             .build()
 
-        googleButton.setOnClickListener(object : View.OnClickListener{
+        googleButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 signIn()
             }
         })
+
+
     }
-
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(optLog == 1){
