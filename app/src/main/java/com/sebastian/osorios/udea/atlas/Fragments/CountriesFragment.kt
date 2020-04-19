@@ -45,7 +45,7 @@ class CountriesFragment : Fragment() {
         val checkInternetConexion = CheckInternetConexion()
         val alert = AlertDialog.Builder(this.context)
 
-        if(checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)){
+
 
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://restcountries.eu")
@@ -81,14 +81,7 @@ class CountriesFragment : Fragment() {
                     alert.show()
                 }
             })
-        }else{
-            alert.setTitle(constants.ERROR_TITLE)
-            alert.setMessage(commonFunctions.getErrorMessage("402", ""))
-            alert.setPositiveButton(
-                "Confirmar", null
-            )
-            alert.show()
-        }
+
 
 
 
