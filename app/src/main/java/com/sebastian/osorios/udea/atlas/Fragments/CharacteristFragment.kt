@@ -15,7 +15,7 @@ class CharacteristFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_characterist, container, false)
-        val intent = activity!!.intent
+        /*val intent = activity!!.intent
         val country: Countries? = intent?.getSerializableExtra("country") as Countries
 
         val capital : TextView = root.findViewById(R.id.capital)
@@ -36,7 +36,7 @@ class CharacteristFragment : Fragment() {
         area.text = country.area.toString()
         poblacion.text = country.population.toString()
         zona.text = country.timezones.toString()
-        gini.text = country.gini.toString()
+        gini.text = country.gini.toString()*/
 
         return root
     }

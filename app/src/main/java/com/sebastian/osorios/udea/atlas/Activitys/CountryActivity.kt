@@ -22,8 +22,8 @@ class CountryActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
-        val country: Countries? = intent?.getSerializableExtra("country") as Countries
-        val title : TextView = findViewById(R.id.title)
-        title.text = country!!.name.toUpperCase() + " (" + country!!.cioc + ")"
+        //val country: Countries? = intent?.getSerializableExtra("country") as Countries
+        //val title : TextView = findViewById(R.id.title)
+        //title.text = country!!.name.toUpperCase() + " (" + country!!.cioc + ")"
     }
 }

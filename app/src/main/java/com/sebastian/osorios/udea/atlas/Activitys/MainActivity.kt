@@ -80,15 +80,18 @@ class MainActivity : AppCompatActivity() {
             myRef.addValueEventListener(postListener)
 
         }else{
-            var firebaseUser : FirebaseUser? = FirebaseAuth.getInstance().currentUser
-                if(firebaseUser != null){
+            val firebaseUser : FirebaseUser? = FirebaseAuth.getInstance().currentUser
+
+            Toast.makeText(this,"hizo login",Toast.LENGTH_LONG).show()
+            if(firebaseUser != null){
+                Toast.makeText(this,"llego a cargar datos",Toast.LENGTH_LONG).show()
                 textViewName.text = firebaseUser.displayName.toString()
                 textViewEmail.text  = firebaseUser.email.toString()
-                val picasso = Picasso.get().load(firebaseUser.photoUrl).into(imageView)
-            }
-            if(AccessToken.getCurrentAccessToken() == null){
-                goLanding()
-            }
+                Picasso.get().load(firebaseUser.photoUrl).into(imageView)
+            }else{
+                    goLanding()
+                }
+
 
         }
 

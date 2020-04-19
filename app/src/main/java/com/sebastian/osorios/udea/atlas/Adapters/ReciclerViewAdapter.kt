@@ -69,7 +69,7 @@ class ReciclerViewAdapter(
             itemView.setOnClickListener{
                 Toast.makeText(context,country.name,Toast.LENGTH_SHORT).show()
                 val intent = Intent(context, CountryActivity::class.java)
-                intent.putExtra("country",country)
+                //intent.putExtra("country",country)
                 context.startActivity(intent)
             }
         }
