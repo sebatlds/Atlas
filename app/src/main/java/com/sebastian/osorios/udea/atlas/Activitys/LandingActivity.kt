@@ -56,7 +56,7 @@ class LandingActivity : AppCompatActivity() {
         btnContinue.setOnClickListener {
             val checkInternetConexion = CheckInternetConexion()
             btnContinue.isEnabled = false
-            if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)) {
+
                 val email : String = editTextUserLogin.text.toString()
                 val userDAO : UserDAO = SesionRoom.database.UserDAO()
                 val usuario : Usuario = userDAO.searchUser(email)
@@ -79,16 +79,7 @@ class LandingActivity : AppCompatActivity() {
                         alert.show()
 
                     }
-            }else{
-                btnContinue.isEnabled = true
-                val commonFunctions = CommonFunctions()
-                alert.setTitle(constants.ERROR_TITLE)
-                alert.setMessage(commonFunctions.getErrorMessage("402", ""))
-                alert.setPositiveButton(
-                    "Confirmar", null
-                )
-                alert.show()
-            }
+
         }
 
 
