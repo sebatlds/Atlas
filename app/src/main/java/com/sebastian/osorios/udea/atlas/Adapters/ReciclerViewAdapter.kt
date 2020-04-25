@@ -62,19 +62,52 @@ class ReciclerViewAdapter(
         }
 
         fun bindCountry(country : Countries){
-            itemView.text_view.text = country.name
+            var name : String? = country.translations?.espanish
+            if(!name.equals(null)){
+                name = country?.translations?.espanish
+            }else {
+                name = country?.name
+            }
+            if (name != null && name.length > 30) {
+                name = chengeName(name)
+            }
+            itemView.text_view.text = name
             itemView.text_view_capital.text = country.capital
             itemView.imageViewArrow.setImageResource(R.drawable.sharp_keyboard_arrow_right_white_18)
             itemView.imageViewFlag.setImageResource(R.drawable.images)
             itemView.setOnClickListener{
-                Toast.makeText(context,country.name,Toast.LENGTH_SHORT).show()
                 val intent = Intent(context, CountryActivity::class.java)
-                //intent.putExtra("country",country)
+                intent.putExtra("country",country)
                 context.startActivity(intent)
             }
         }
 
+        fun chengeName(name : String) : String {
+            var count : Int =0
+            var caract : CharArray = name.toCharArray()
+            var aux : String? = null
+            for(item  in 0..name!!.length-1){
+                val spaceCaracter : CharArray = " ".toCharArray()
+                if(caract[item].equals(spaceCaracter[0])){
+                    count ++
+                    if(count == 3){
+                        aux = aux + "\n"
+                    }else{
+                        aux = aux + caract[item]
+                    }
+                }else{
+                    if(aux != null){
+                        aux = aux + caract[item]
+                    }else{
+                        aux = caract[item].toString()
+                    }
+                }
+            }
+            return aux!!
+        }
+
 
     }
+
 
 }

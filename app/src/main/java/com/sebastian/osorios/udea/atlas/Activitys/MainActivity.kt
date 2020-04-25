@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         val textViewEmail : TextView = view.findViewById(R.id.textViewEmailNavHeader)
         val imageView : CircleImageView = view.findViewById(R.id.imageViewCircle)
         navView.addHeaderView(view)
-        val authType = intent.getStringExtra("auth")
+       /* val authType = intent.getStringExtra("auth")
         if(authType.equals("email")){
             imageView.setImageResource(R.drawable.images)
             email = intent.getStringExtra("email")
@@ -93,11 +93,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
 
-        }
-
-
-
-
+        }*/
 
 
         // Passing each menu ID as a set of Ids because each

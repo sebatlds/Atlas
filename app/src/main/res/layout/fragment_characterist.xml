@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,18 +7,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="7dp"
         android:orientation="vertical">
         <TextView
             android:id="@+id/nombreReal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="35dp"
             android:text="republica de lo que sea" />
         <TextView
             android:id="@+id/capital"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:textSize="32dp"
             android:text="capital" />
 
         <TextView
@@ -26,6 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="7dp"
+            android:textColor="@color/white"
+            android:textSize="30dp"
             android:text="region"/>
 
         <TextView
@@ -33,81 +43,108 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="30dp"
             android:text="subregion"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="28dp"
                 android:text="Gentilicio:"/>
             <TextView
                 android:id="@+id/domain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="28dp"
                 android:text="gentilicio"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="28dp"
+                android:textColor="@color/white"
                 android:text="Area:"/>
             <TextView
                 android:id="@+id/area"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="28dp"
+                android:textColor="@color/white"
                 android:text="area"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="28dp"
+                android:textColor="@color/white"
                 android:text="Poblacion:"/>
             <TextView
                 android:id="@+id/poblacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="28dp"
+                android:textColor="@color/white"
                 android:text="poblacion"/>
         </LinearLayout>
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+            android:layout_marginTop="7dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="28dp"
+            android:textColor="@color/white"
             android:text="zona:"/>
         <TextView
             android:id="@+id/zona_horaria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="28dp"
+            android:textColor="@color/white"
             android:text="zona horaria"/>
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="28dp"
+                android:textColor="@color/white"
                 android:text="Indice de desigualdad:"/>
             <TextView
                 android:id="@+id/gini"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="28dp"
+                android:textColor="@color/white"
                 android:text="gini"/>
         </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

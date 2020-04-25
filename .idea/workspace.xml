@@ -7,16 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d9bbf7-2f43-491e-9e93-3e15c388c1ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_3_0_beta01_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_1_0_beta01_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_1_0_beta01_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_0_alpha05_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_0_alpha05_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_android_sdk_5_15_3_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_applinks_5_15_3_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_messenger_5_15_3_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_places_5_15_3_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_share_5_15_3_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_maps_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_12_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_15_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_6_2_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_6_2_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountryPageAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/google_maps_api.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -29,20 +27,32 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_3_0_alpha02_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_1_0_alpha02_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_1_0_alpha04_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_0_alpha04_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_0_alpha04_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_10_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_14_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_4_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_4_0_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/release/app-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/release/app-release.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CharacteristFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CharacteristFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/OthersFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/OthersFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/ui/main/PageViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/ui/main/PlaceholderFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/ui/main/PlaceholderFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/ui/main/SectionsPagerAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_country.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_country.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_characterist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_characterist.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_geolocation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_geolocation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_others.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_others.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_view_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_view_item.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,9 +92,9 @@
         <option value="Kotlin Enum" />
         <option value="Kotlin Interface" />
         <option value="Kotlin File" />
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
         <option value="resourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -112,7 +122,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SesionRoom" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
@@ -121,6 +131,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sebastian.osorio\Documents\UdeA\Desarrollo Android\Atlas\app\src\main\res\values" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
@@ -319,51 +330,6 @@
           <line>18</line>
           <properties class="com.sebastian.osorios.udea.atlas.Exceptions.ErrorMesagge" method="getMessage" />
           <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
-          <line>79</line>
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
-          <line>71</line>
-          <option name="timeStamp" value="162" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
-          <line>73</line>
-          <option name="timeStamp" value="165" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
-          <line>74</line>
-          <option name="timeStamp" value="166" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
-          <line>75</line>
-          <option name="timeStamp" value="167" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
-          <line>76</line>
-          <option name="timeStamp" value="168" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
-          <line>52</line>
-          <option name="timeStamp" value="211" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
-          <line>55</line>
-          <option name="timeStamp" value="220" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountriesAdapter.kt</url>
-          <line>56</line>
-          <option name="timeStamp" value="221" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/RegisterInAtlas.kt</url>
@@ -742,22 +708,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt</url>
-          <line>70</line>
+          <line>78</line>
           <option name="timeStamp" value="810" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt</url>
-          <line>72</line>
+          <line>80</line>
           <option name="timeStamp" value="814" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt</url>
-          <line>69</line>
-          <option name="timeStamp" value="828" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/ReciclerViewAdapter.kt</url>
-          <line>71</line>
+          <line>79</line>
           <option name="timeStamp" value="830" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -989,6 +950,171 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/LandingActivity.kt</url>
           <line>217</line>
           <option name="timeStamp" value="977" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>24</line>
+          <option name="timeStamp" value="993" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/ui/main/PlaceholderFragment.kt</url>
+          <line>21</line>
+          <option name="timeStamp" value="997" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>32</line>
+          <option name="timeStamp" value="1010" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>33</line>
+          <option name="timeStamp" value="1014" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt</url>
+          <line>36</line>
+          <option name="timeStamp" value="1019" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt</url>
+          <line>27</line>
+          <option name="timeStamp" value="1020" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CharacteristFragment.kt</url>
+          <line>16</line>
+          <option name="timeStamp" value="1021" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CharacteristFragment.kt</url>
+          <line>40</line>
+          <option name="timeStamp" value="1022" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/OthersFragment.kt</url>
+          <line>15</line>
+          <option name="timeStamp" value="1023" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/OthersFragment.kt</url>
+          <line>16</line>
+          <option name="timeStamp" value="1024" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>25</line>
+          <option name="timeStamp" value="1026" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>26</line>
+          <option name="timeStamp" value="1027" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>28</line>
+          <option name="timeStamp" value="1028" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>27</line>
+          <option name="timeStamp" value="1029" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>29</line>
+          <option name="timeStamp" value="1030" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>30</line>
+          <option name="timeStamp" value="1031" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Activitys/CountryActivity.kt</url>
+          <line>31</line>
+          <option name="timeStamp" value="1032" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountryPageAdapter.kt</url>
+          <line>27</line>
+          <option name="timeStamp" value="1033" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountryPageAdapter.kt</url>
+          <line>35</line>
+          <option name="timeStamp" value="1034" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountryPageAdapter.kt</url>
+          <line>39</line>
+          <option name="timeStamp" value="1035" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Adapters/CountryPageAdapter.kt</url>
+          <line>40</line>
+          <option name="timeStamp" value="1036" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt</url>
+          <line>67</line>
+          <option name="timeStamp" value="1055" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt</url>
+          <line>66</line>
+          <option name="timeStamp" value="1056" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt</url>
+          <line>68</line>
+          <option name="timeStamp" value="1057" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt</url>
+          <line>71</line>
+          <option name="timeStamp" value="1058" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt</url>
+          <line>72</line>
+          <option name="timeStamp" value="1059" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/CountriesFragment.kt</url>
+          <line>74</line>
+          <option name="timeStamp" value="1060" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt</url>
+          <line>29</line>
+          <option name="timeStamp" value="1066" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt</url>
+          <line>28</line>
+          <option name="timeStamp" value="1069" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt</url>
+          <line>40</line>
+          <option name="timeStamp" value="1071" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt</url>
+          <line>41</line>
+          <option name="timeStamp" value="1074" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt</url>
+          <line>42</line>
+          <option name="timeStamp" value="1075" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/sebastian/osorios/udea/atlas/Fragments/GeolocationFragment.kt</url>
+          <line>43</line>
+          <option name="timeStamp" value="1076" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
