@@ -35,7 +35,6 @@ class CountryActivity : AppCompatActivity(){
         val country: Countries? = intent?.getSerializableExtra("country") as Countries
         val title : TextView = findViewById(R.id.title)
         title.text = country!!.translations.espanish.toUpperCase() + " (" + country!!.cioc + ")"
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
     }
 
 }

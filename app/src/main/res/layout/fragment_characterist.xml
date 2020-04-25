@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/des1"
     tools:context="com.sebastian.osorios.udea.atlas.Fragments.CharacteristFragment">
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,13 +12,20 @@
         android:layout_marginTop="7dp"
         android:orientation="vertical">
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            android:gravity="center"
+            android:text="@string/Nombre_oficial"/>
+
+        <TextView
             android:id="@+id/nombreReal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="35dp"
-            android:text="republica de lo que sea" />
+            android:textSize="35dp" />
         <TextView
             android:id="@+id/capital"
             android:layout_width="match_parent"
@@ -25,8 +33,7 @@
             android:gravity="center"
             android:layout_marginTop="5dp"
             android:textColor="@color/white"
-            android:textSize="32dp"
-            android:text="capital" />
+            android:textSize="32dp"/>
 
         <TextView
             android:id="@+id/region"
@@ -35,8 +42,7 @@
             android:gravity="center"
             android:layout_marginTop="7dp"
             android:textColor="@color/white"
-            android:textSize="30dp"
-            android:text="region"/>
+            android:textSize="30dp"/>
 
         <TextView
             android:id="@+id/sub_region"
@@ -44,8 +50,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="30dp"
-            android:text="subregion"/>
+            android:textSize="30dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,14 +62,13 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="28dp"
-                android:text="Gentilicio:"/>
+                android:text="@string/gentilicio"/>
             <TextView
                 android:id="@+id/domain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="28dp"
-                android:text="gentilicio"/>
+                android:textSize="28dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,14 +81,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="28dp"
                 android:textColor="@color/white"
-                android:text="Area:"/>
+                android:text="@string/area"/>
             <TextView
                 android:id="@+id/area"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="28dp"
-                android:textColor="@color/white"
-                android:text="area"/>
+                android:textColor="@color/white"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="28dp"
                 android:textColor="@color/white"
-                android:text="Poblacion:"/>
+                android:text="@string/poblacion"/>
             <TextView
                 android:id="@+id/poblacion"
                 android:layout_width="wrap_content"
@@ -117,14 +120,13 @@
             android:layout_height="wrap_content"
             android:textSize="28dp"
             android:textColor="@color/white"
-            android:text="zona:"/>
+            android:text="@string/zona"/>
         <TextView
             android:id="@+id/zona_horaria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="28dp"
-            android:textColor="@color/white"
-            android:text="zona horaria"/>
+            android:textColor="@color/white"/>
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,14 +139,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="28dp"
                 android:textColor="@color/white"
-                android:text="Indice de desigualdad:"/>
+                android:text="@string/gini"/>
             <TextView
                 android:id="@+id/gini"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="28dp"
-                android:textColor="@color/white"
-                android:text="gini"/>
+                android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

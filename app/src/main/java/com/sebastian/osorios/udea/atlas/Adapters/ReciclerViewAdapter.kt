@@ -62,12 +62,7 @@ class ReciclerViewAdapter(
         }
 
         fun bindCountry(country : Countries){
-            var name : String? = country.translations?.espanish
-            if(!name.equals(null)){
-                name = country?.translations?.espanish
-            }else {
-                name = country?.name
-            }
+            var name : String? = country.name
             if (name != null && name.length > 30) {
                 name = chengeName(name)
             }
