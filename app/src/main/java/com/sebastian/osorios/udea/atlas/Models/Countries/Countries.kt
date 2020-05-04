@@ -21,14 +21,14 @@ class Countries  (
     @SerializedName("area") val area : Double,
     @SerializedName("gini") val gini : Double,
     @SerializedName("timezones") val timezones : List<String>,
-    @SerializedName("borders") val borders : List<String>,
-   // @SerializedName("nativeName") val nativeName : String,
-   // @SerializedName("numericCode") val numericCode : Int,
-    //@SerializedName("currencies") val currencies : List<Currencies>,
-    //@SerializedName("languages") val languages : List<Languages>,
+    @SerializedName("borders") val borders : List<String>,//implementado
+    @SerializedName("nativeName") val nativeName : String,
+    @SerializedName("callingCodes") val callingCodes : List<String>,
+    @SerializedName("currencies") val currencies : List<Currency>,//implementado
+    @SerializedName("languages") val languages : List<Language>,//implemntado
     @SerializedName("translations") val translations : Translations,
     @SerializedName("flag") val flag : String,
-    //@SerializedName("regionalBlocs") val regionalBlocs : List<RegionalBlocs>,
+    @SerializedName("regionalBlocs") val regionalBlocs : List<RegionalBloc>,//implementado
     @SerializedName("cioc") val cioc : String
 ) : Serializable
 

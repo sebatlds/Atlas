@@ -2,19 +2,25 @@ package com.sebastian.osorios.udea.atlas.Adapters
 
 import android.content.Context
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
-import android.os.Bundle
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.PictureDrawable
+import android.net.Uri
 import android.view.LayoutInflater
-import android.view.ViewGroup
-import com.sebastian.osorios.udea.atlas.Models.Countries.Countries
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
-import android.widget.Toast
+import android.view.ViewGroup
+import androidx.annotation.DrawableRes
+import androidx.browser.customtabs.CustomTabsClient.getPackageName
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.RequestBuilder
 import com.sebastian.osorios.udea.atlas.Activitys.CountryActivity
+import com.sebastian.osorios.udea.atlas.Activitys.MainActivity
+import com.sebastian.osorios.udea.atlas.Models.Countries.Countries
 import com.sebastian.osorios.udea.atlas.R
+import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import kotlinx.android.synthetic.main.list_view_item.view.*
-import retrofit2.Callback
-import java.io.Serializable
+import java.io.File
+
 
 class ReciclerViewAdapter(
     context: Context, listCountries: List<Countries>
@@ -22,6 +28,7 @@ class ReciclerViewAdapter(
 
     var listCountries = emptyList<Countries>()
     var context : Context
+    private val requestBuilder: RequestBuilder<PictureDrawable>? = null
 
     init{
         this.listCountries = listCountries
@@ -51,7 +58,7 @@ class ReciclerViewAdapter(
         itemView : View,
         context: Context
     ): RecyclerView.ViewHolder(itemView){
-
+        val commonFunctions = CommonFunctions()
         private val context : Context
         private var countries : Countries? = null
 
@@ -60,23 +67,55 @@ class ReciclerViewAdapter(
         }
 
         fun bindCountry(country : Countries){
-            itemView.text_view.text = country.name
+            var name : String? = country.name
+            if (name != null && name.length > 30) {
+                name = chengeName(name)
+            }
+
+            itemView.text_view.text = name
             itemView.text_view_capital.text = country.capital
-            itemView.imageViewArrow.setImageResource(R.drawable.sharp_keyboard_arrow_right_white_18)
-            itemView.imageViewFlag.setImageResource(R.drawable.images)
-            itemView.setOnClickListener{
-                Toast.makeText(context,country.name,Toast.LENGTH_SHORT).show()
-                val intent = Intent(context, CountryActivity::class.java)
+            itemView.imageViewArrow.setImageResource(R.drawable.drawable_grupo1_arrow_right_white)
+            if(country.altSpellings.size != 0){
+                itemView.imageViewFlag.setImageResource(commonFunctions.getFlagsOfCountry(country.altSpellings[0].toLowerCase()))
+            }else{
+                itemView.imageViewFlag.setImageResource(R.drawable.naciones_unidas)
+            }
+
+            itemView.setOnClickListener {
+                val intent : Intent = Intent(itemView.context,CountryActivity::class.java)
                 intent.putExtra("country",country)
-                context.startActivity(intent)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                itemView.context.startActivity(intent)
             }
-            itemView.setOnLongClickListener{
-                Toast.makeText(context,countries!!.name+"LONG",Toast.LENGTH_SHORT).show()
-                return@setOnLongClickListener true
+
+        }
+
+        fun chengeName(name : String) : String {
+            var count : Int =0
+            var caract : CharArray = name.toCharArray()
+            var aux : String? = null
+            for(item  in 0..name!!.length-1){
+                val spaceCaracter : CharArray = " ".toCharArray()
+                if(caract[item].equals(spaceCaracter[0])){
+                    count ++
+                    if(count == 3){
+                        aux = aux + "\n"
+                    }else{
+                        aux = aux + caract[item]
+                    }
+                }else{
+                    if(aux != null){
+                        aux = aux + caract[item]
+                    }else{
+                        aux = caract[item].toString()
+                    }
+                }
             }
+            return aux!!
         }
 
 
     }
+
 
 }

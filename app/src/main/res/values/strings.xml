@@ -42,5 +42,18 @@
     <string name="tab_text_1">Caracteristicas</string>
     <string name="tab_text_2">Otras Caracteristicas</string>
     <string name="tab_text_3">Geolocalizacion</string>
+    <string name="gentilicio">Gentilicio:</string>
+    <string name="area">Area:</string>
+    <string name="poblacion">Poblacion:</string>
+    <string name="zona">Zona horaria:</string>
+    <string name="gini">Indice desigualdad:</string>
+    <string name="Nombre_oficial">Nombre Oficial</string>
+    <string name="top_level_domain">Dominio Internet</string>
+    <string name="alpha_code">Codigos del Pais</string>
+    <string name="limites">Limites</string>
+    <string name="lenguajes">Idiomas hablados</string>
+    <string name="currencies">Monedas</string>
+    <string name="regional_bloc">Alianzas Regionales</string>
+    <string name="calling_code">Codigo telefonico</string>
 </resources>
 

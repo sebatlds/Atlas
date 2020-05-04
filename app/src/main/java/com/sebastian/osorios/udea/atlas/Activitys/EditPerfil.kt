@@ -1,10 +1,17 @@
 package com.sebastian.osorios.udea.atlas.Activitys
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
+import android.view.View
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Toast
@@ -13,16 +20,33 @@ import com.google.firebase.database.FirebaseDatabase
 import com.sebastian.osorios.udea.atlas.Models.User.Usuario
 import com.sebastian.osorios.udea.atlas.R
 import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_edit_perfil.*
+import java.io.File
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import androidx.core.net.toUri
+import com.google.android.gms.tasks.Continuation
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
+import java.io.ByteArrayOutputStream
 import kotlin.collections.HashMap
 
 class EditPerfil : AppCompatActivity() {
 
-    lateinit var email : String
-    lateinit var usuario : Usuario
+    lateinit var email: String
+    lateinit var usuario: Usuario
+    lateinit var imageView: CircleImageView
+    private val CAPTURE_IMAGE_REQUEST = 1
+    private lateinit var mCurrentPhotoPath: String
+    private var imageUri : Uri? = null
+
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,19 +58,41 @@ class EditPerfil : AppCompatActivity() {
         var nameEdit : EditText = findViewById(R.id.edit_name)
         var lastName : EditText = findViewById(R.id.edit_last_name)
         var dateEdit : EditText = findViewById(R.id.edit_date)
+        imageView = findViewById(R.id.image_edit_perfil)
         val database : FirebaseDatabase = FirebaseDatabase.getInstance()
         var myRef = database.getReference("usuarios")
+
+        if(!intent.getStringExtra("image").equals("null")){
+            imageUri = intent.getStringExtra("image").toUri()
+        }
         usuario = Usuario(
             intent?.getStringExtra("id").toString(),
             intent?.getStringExtra("email").toString(),
             intent?.getStringExtra("name").toString(),
             intent?.getStringExtra("lastName").toString(),
             intent?.getStringExtra("date").toString(),
-            intent?.getStringExtra("gender").toString()
+            intent?.getStringExtra("gender").toString(),
+            imageUri.toString()
         )
+
+        checkMenEdit.setOnClickListener {
+            checkMenEdit.isChecked = true
+            checkWomenEdit.isChecked = false
+        }
+
+        checkWomenEdit.setOnClickListener {
+            checkMenEdit.isChecked = false
+            checkWomenEdit.isChecked = true
+        }
+
         nameEdit.hint = usuario.name
         lastName.hint = usuario.lastName
         dateEdit.hint = usuario.date
+        if(imageUri != null){
+            Picasso.get().load(imageUri).into(imageView)
+        }else{
+            imageView.setImageResource(R.drawable.images)
+        }
         if("Hombre".equals(usuario.gender)){
             checkMenEdit.isChecked = true
             checkWomenEdit.isChecked = false
@@ -60,6 +106,7 @@ class EditPerfil : AppCompatActivity() {
             var name : String
             var lastNameEdit : String
             var date : String
+            var image : String = "null"
             if(nameEdit.text.toString().equals("")){
                 name = usuario.name
             }else{
@@ -80,15 +127,21 @@ class EditPerfil : AppCompatActivity() {
             }else{
                 gender = "Mujer"
             }
+            if(!imageUri!!.equals(null)){
+                image = imageUri.toString()
+            }
+
             val childUpdates = HashMap<String,Any>()
             childUpdates["email"]= email
             childUpdates["name"]=name
-            childUpdates["last_name"]=lastNameEdit
+            childUpdates["lastName"]=lastNameEdit
             childUpdates["date"]=date
             childUpdates["gender"]=gender
+            childUpdates["image"]=imageUri.toString()
             myRef.child(usuario.id).updateChildren(childUpdates)
             Toast.makeText(this,"Actualización conrrecta",Toast.LENGTH_SHORT).show()
             val intent = Intent(applicationContext ,MainActivity::class.java)
+            intent.putExtra("auth","email")
             intent.putExtra("email",email)
             startActivity(intent)
             finish()
@@ -114,5 +167,119 @@ class EditPerfil : AppCompatActivity() {
     }
 
 
-}
+    fun onClick(view: View) {
+        cargarImagen()
+    }
 
+    fun cargarImagen() {
+        var opciones: Array<String> = arrayOf("Tomar Foto", "Cargar Imagen", "Cancelar")
+        val alertOpciones: AlertDialog.Builder = AlertDialog.Builder(this)
+        alertOpciones.setTitle("Seleccione una opción")
+        alertOpciones.setItems(opciones, object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, i: Int) {
+                if (opciones[i].equals("Tomar Foto")) {
+                    tomarFoto()
+                } else if (opciones[i].equals("Cargar Imagen")) {
+                    val intent: Intent = Intent(
+                        Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                    )
+                    intent.setType("image/")
+                    startActivityForResult(
+                        Intent.createChooser(intent, "Seleccione la Aplicación"),
+                        10
+                    )
+                } else {
+                    dialog!!.dismiss()
+                }
+            }
+        })
+        alertOpciones.show()
+    }
+
+    private fun tomarFoto() {
+          Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+                takePictureIntent.resolveActivity(packageManager)?.also {
+                    startActivityForResult(takePictureIntent, CAPTURE_IMAGE_REQUEST)
+                }
+          }
+
+
+    }
+
+
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            val storage = FirebaseStorage.getInstance().reference
+            val filePath = storage.child("usuarios/"+usuario.id+".jpg")
+            if(requestCode == 10){
+                imageUri = data!!.data!!
+                val parcelFileDescriptor = contentResolver.openFileDescriptor(imageUri!!,"r")
+                val fileDescriptor = parcelFileDescriptor?.fileDescriptor
+                val imageBitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor)
+                parcelFileDescriptor!!.close()
+                val bytes = ByteArrayOutputStream()
+                imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,bytes)
+                updateToStorage(imageBitmap, filePath)
+            }else if(requestCode == CAPTURE_IMAGE_REQUEST){
+                imageView.isDrawingCacheEnabled = true
+                imageView.buildDrawingCache()
+                val imageBitmap : Bitmap = data?.extras?.get("data") as Bitmap
+                updateToStorage(imageBitmap, filePath)
+
+            }else{
+                displayMessage(baseContext, "Request cancelled or something went wrong.")
+            }
+
+
+        }
+
+
+    }
+
+
+
+    private fun displayMessage(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if (requestCode == 0) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                tomarFoto()
+            }
+        }
+    }
+
+    private fun updateToStorage(
+        imageBitmap: Bitmap,
+        filePath: StorageReference
+    ) {
+        val bytes = ByteArrayOutputStream()
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,bytes)
+        val dat = bytes.toByteArray()
+        val uploadTask = filePath.putBytes(dat)
+        val urlTask = uploadTask.continueWithTask(Continuation<com.google.firebase.storage.UploadTask.TaskSnapshot, com.google.android.gms.tasks.Task<android.net.Uri>> { task ->
+            if(!task.isSuccessful){
+                task.exception?.let {
+                    throw it
+                }
+            }
+            return@Continuation filePath.downloadUrl
+        }).addOnCompleteListener { task ->
+            if(task.isSuccessful){
+                imageUri  = task.result!!
+                Picasso.get().load(imageUri).into(imageView)
+            }else{
+                val alert: AlertDialog.Builder = AlertDialog.Builder(this)
+                alert.setTitle("Se produjo un error, vuelve a intentarlo")
+                alert.setPositiveButton("Aceptar",null)
+            }
+
+        }
+
+    }
+}

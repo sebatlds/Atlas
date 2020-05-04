@@ -7,15 +7,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sebastian.osorios.udea.atlas.Adapters.CountriesAdapter
 import com.sebastian.osorios.udea.atlas.Adapters.ReciclerViewAdapter
 import com.sebastian.osorios.udea.atlas.Interfaces.ApiServices
 import com.sebastian.osorios.udea.atlas.Models.Countries.Countries
-import com.sebastian.osorios.udea.atlas.Util.CheckInternetConexion
 import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import com.sebastian.osorios.udea.atlas.Util.Constants
 import retrofit2.Call
@@ -31,8 +28,6 @@ class CountriesFragment : Fragment(){
     var constants : Constants = Constants()
     var commonFunctions : CommonFunctions = CommonFunctions()
     var mcontext : Context? =null
-    var adapterCountriesNames : CountriesAdapter? = null
-    var reciclerViewAdapter : ReciclerViewAdapter? = null
     var listCountries : List<Countries>? = null
 
     override fun onCreateView(
@@ -40,56 +35,8 @@ class CountriesFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val root = inflater.inflate(R.layout.fragment_countries, container, false)
-        val listReciclerView = root.findViewById<RecyclerView>(R.id.list_coutries)
-        val checkInternetConexion = CheckInternetConexion()
-        val alert = AlertDialog.Builder(this.context)
-
-        if(checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)){
-
-            val retrofit = Retrofit.Builder()
-                .baseUrl("https://restcountries.eu")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-            val service = retrofit.create(ApiServices::class.java)
-            service.getCountries().enqueue(object: Callback<List<Countries>>{
-                override fun onResponse(call: Call<List<Countries>>, response: Response<List<Countries>>) {
-                    listCountries = response.body()
-                    if (listCountries != null) {
-                        adapterCountriesNames = CountriesAdapter(
-                                activity,
-                                listCountries!!,
-                                parentFragmentManager
-                            )
-                        listReciclerView.setHasFixedSize(true)
-                        listReciclerView.layoutManager = LinearLayoutManager(
-                            activity?.applicationContext,RecyclerView.VERTICAL,false
-                        )
-
-                        val countriesAdapter = ReciclerViewAdapter(
-                            activity!!.applicationContext, listCountries!!)
-
-                        listReciclerView.adapter = countriesAdapter
-                    }
-                }
-                override fun onFailure(call: Call<List<Countries>>, t: Throwable) {
-                    alert.setTitle(constants.ERROR_TITLE)
-                    alert.setMessage(commonFunctions.getErrorMessage("501", ""))
-                    alert.setPositiveButton(
-                        "Confirmar", null
-                    )
-                    alert.show()
-                }
-            })
-        }else{
-            alert.setTitle(constants.ERROR_TITLE)
-            alert.setMessage(commonFunctions.getErrorMessage("402", ""))
-            alert.setPositiveButton(
-                "Confirmar", null
-            )
-            alert.show()
-        }
+        getCountries(this.context, root)
         return root
     }
 
@@ -106,7 +53,40 @@ class CountriesFragment : Fragment(){
         startActivity(a)
     }
 
+    private fun getCountries(context: Context?, root: View) {
+        val listReciclerView = root.findViewById<RecyclerView>(R.id.list_coutries)
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://restcountries.eu")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(ApiServices::class.java)
+        service.getCountries().enqueue(object: Callback<List<Countries>>{
+            override fun onResponse(call: Call<List<Countries>>, response: Response<List<Countries>>) {
+                listCountries = response.body()
+                if (listCountries != null) {
+                    listReciclerView.setHasFixedSize(true)
+                    listReciclerView.layoutManager = LinearLayoutManager(
+                        activity?.applicationContext,RecyclerView.VERTICAL,false
+                    )
 
+                    val countriesAdapter = ReciclerViewAdapter(
+                        activity!!.applicationContext, listCountries!!)
+
+                    listReciclerView.adapter = countriesAdapter
+                }
+            }
+            override fun onFailure(call: Call<List<Countries>>, t: Throwable) {
+                val alert = AlertDialog.Builder(context)
+                alert.setTitle(constants.ERROR_TITLE)
+                alert.setMessage(commonFunctions.getErrorMessage("501", ""))
+                alert.setPositiveButton(
+                    "Confirmar", null
+                )
+                alert.show()
+            }
+        })
+
+    }
 
 }
 

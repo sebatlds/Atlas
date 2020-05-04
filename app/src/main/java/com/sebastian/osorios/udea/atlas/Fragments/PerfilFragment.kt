@@ -36,7 +36,7 @@ class PerfilFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_perfil, container, false)
         linearLayoutGenero  = root.findViewById(R.id.linearLyaoutGenero)
-        val intent = activity!!.intent
+        val intent = activity?.intent
         var iconEdit : ImageView?  = root.findViewById(R.id.edit_perfil)
         var textViewName : TextView = root.findViewById(R.id.user_name)
         var textViewLastName : TextView = root.findViewById(R.id.last_name)
@@ -45,9 +45,10 @@ class PerfilFragment : Fragment() {
         var textViewGenero : TextView = root.findViewById(R.id.genero_perfil)
         var imageViewGenero : ImageView = root.findViewById(R.id.imageView_genero)
         var imagePerfil : CircleImageView = root.findViewById(R.id.imagePerfil)
-        var auth = intent.getStringExtra("auth")
+        var url : String = "null"
+        var auth = intent?.getStringExtra("auth")
         if(auth.equals("email")){
-            email = intent.getStringExtra("email")
+            email = intent!!.getStringExtra("email")
             database = FirebaseDatabase.getInstance()
             myRef = database.getReference("usuarios")
             val postListener = object : ValueEventListener {
@@ -55,7 +56,12 @@ class PerfilFragment : Fragment() {
                     for(snapshot: DataSnapshot in dataSnapshot.children){
                         val map : DataSnapshot = snapshot
                         if(email.equals(map.child("email").value)){
-                            System.out.println("%%% "+map.child("name").value.toString() + " " + map.child("lastName").value.toString())
+                            if(map.child("image").value.toString().equals("null")){
+                                imagePerfil.setImageResource(R.drawable.images)
+                            }else{
+                                url = map.child("image").value.toString()
+                                Picasso.get().load(map.child("image").value.toString()).into(imagePerfil)
+                            }
                             textViewEmail.text = email
                             textViewName.text = map.child("name").value.toString()
                             textViewLastName.text = map.child("lastName").value.toString()
@@ -63,9 +69,9 @@ class PerfilFragment : Fragment() {
                             textViewGenero.text = map.child("gender").value.toString()
                             id = map.child("id").value.toString()
                             if(map.child("gender").value.toString().equals("Hombre")){
-                                imageViewGenero.setImageResource(R.drawable.macho)
+                                imageViewGenero.setImageResource(R.drawable.drawable_grupo1_icon_masculino)
                             }else{
-                                imageViewGenero.setImageResource(R.drawable.femenino)
+                                imageViewGenero.setImageResource(R.drawable.drawable_grupo1_icon_femenino)
                             }
                         }
                     }
@@ -98,8 +104,8 @@ class PerfilFragment : Fragment() {
             intent.putExtra("gender",textViewGenero.text)
             intent.putExtra("date",textViewDate.text)
             intent.putExtra("id",id)
+            intent.putExtra("image", url)
             startActivity(intent)
-            startActivityForResult(intent,constants.REQUEST_CODE)
         }
 
 
