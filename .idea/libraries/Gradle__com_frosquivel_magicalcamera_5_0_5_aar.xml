@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.frosquivel:magicalcamera:5.0.5@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eeab2f6c99784359c135d6f84b9e5583/jetified-magicalcamera-5.0.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eeab2f6c99784359c135d6f84b9e5583/jetified-magicalcamera-5.0.5/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.frosquivel/magicalcamera/5.0.5/42d08a8fa0958558cbc33cf86ae91de4271eac00/magicalcamera-5.0.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.frosquivel/magicalcamera/5.0.5/12158eb84b0c1aee79a0b0cc220c5e7cd713813/magicalcamera-5.0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         val authType = intent.getStringExtra("auth")
         if(authType.equals("email")){
-            imageView.setImageResource(R.drawable.images)
+
             email = intent.getStringExtra("email")
             database = FirebaseDatabase.getInstance()
             myRef = database.getReference("usuarios")
@@ -69,6 +69,11 @@ class MainActivity : AppCompatActivity() {
                     for(snapshot: DataSnapshot in dataSnapshot.children){
                         val map : DataSnapshot = snapshot
                         if(email.equals(map.child("email").value)){
+                            if(map.child("image").value!!.toString().equals("null")){
+                                imageView.setImageResource(R.drawable.images)
+                            }else{
+                                Picasso.get().load(map.child("image").value.toString()).into(imageView)
+                            }
                             textViewEmail.text = email
                             textViewName.text = map.child("name").value.toString() + " " + map.child("lastName").value.toString()
                         }

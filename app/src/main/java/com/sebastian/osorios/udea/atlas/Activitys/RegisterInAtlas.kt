@@ -8,17 +8,13 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.sebastian.osorios.udea.atlas.Util.CheckInternetConexion
-import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import com.sebastian.osorios.udea.atlas.Util.Constants
 import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
 import com.sebastian.osorios.udea.atlas.R
 import java.util.Calendar
 import android.app.DatePickerDialog
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.sebastian.osorios.udea.atlas.Models.User.Usuario
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -141,7 +137,8 @@ class RegisterInAtlas : AppCompatActivity(){
                         findViewById<EditText>(R.id.name).text.toString(),
                         findViewById<EditText>(R.id.last_name).text.toString(),
                         findViewById<EditText>(R.id.EditTextdate).text.toString(),
-                        gender
+                        gender,
+                        "null"
                     )
                     myRef.child(id).setValue(usuario)
                     backActivity()

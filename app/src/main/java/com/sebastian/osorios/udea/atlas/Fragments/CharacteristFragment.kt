@@ -29,7 +29,9 @@ class CharacteristFragment : Fragment() {
         val gini : TextView = root.findViewById(R.id.gini)
 
         capital.text = country!!.capital
-        nombre.text = country.altSpellings.get(country.altSpellings.size-1)
+        if(country.altSpellings.size != 0) {
+            nombre.text = country.altSpellings.get(country.altSpellings.size - 1)
+        }
         region.text = country.region
         subRegion.text = country.subregion
         domain.text = " "+ country.demonym
@@ -40,8 +42,4 @@ class CharacteristFragment : Fragment() {
 
         return root
     }
-
-
-
-
 }

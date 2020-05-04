@@ -92,38 +92,47 @@ class LandingActivity : AppCompatActivity() {
 
 
         btnContinue.setOnClickListener {
-            val checkInternetConexion = CheckInternetConexion()
-            btnContinue.isEnabled = false
-            optLog = 2
+            if(editTextUserLogin.text.length != 0  && editTextPassLogin.text.length != 0){
+                btnContinue.isEnabled = false
+                optLog = 2
 
-            val email: String = editTextUserLogin.text.toString()
-            auth.signInWithEmailAndPassword(email, editTextPassLogin.text.toString())
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val user: FirebaseUser? = auth.currentUser
-                        goToMain(user!!)
-                    } else {
-                        if (task.exception!!.message.equals("There is no user record corresponding to this identifier. The user may have been deleted.")) {
-                            btnContinue.isEnabled = true
-                            val commonFunctions = CommonFunctions()
-                            alert.setTitle(constants.ERROR_TITLE)
-                            alert.setMessage(
-                                commonFunctions.getErrorMessage("403", "")
-                            )
-                            alert.setPositiveButton("Confirmar", null)
-                            alert.show()
+                val email: String = editTextUserLogin.text.toString()
+                auth.signInWithEmailAndPassword(email, editTextPassLogin.text.toString())
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val user: FirebaseUser? = auth.currentUser
+                            goToMain(user!!)
                         } else {
-                            btnContinue.isEnabled = true
-                            val commonFunctions = CommonFunctions()
-                            alert.setTitle(constants.ERROR_TITLE)
-                            alert.setMessage(
-                                commonFunctions.getErrorMessage("405", "")
-                            )
-                            alert.setPositiveButton("Confirmar", null)
-                            alert.show()
+                            if (task.exception!!.message.equals("There is no user record corresponding to this identifier. The user may have been deleted.")) {
+                                btnContinue.isEnabled = true
+                                val commonFunctions = CommonFunctions()
+                                alert.setTitle(constants.ERROR_TITLE)
+                                alert.setMessage(
+                                    commonFunctions.getErrorMessage("403", "")
+                                )
+                                alert.setPositiveButton("Confirmar", null)
+                                alert.show()
+                            } else {
+                                btnContinue.isEnabled = true
+                                val commonFunctions = CommonFunctions()
+                                alert.setTitle(constants.ERROR_TITLE)
+                                alert.setMessage(
+                                    commonFunctions.getErrorMessage("405", "")
+                                )
+                                alert.setPositiveButton("Confirmar", null)
+                                alert.show()
+                            }
                         }
                     }
-                }
+            }else{
+                val commonFunctions = CommonFunctions()
+                alert.setTitle("Error")
+                alert.setMessage(
+                    commonFunctions.getErrorMessage("406","")
+                )
+                alert.setPositiveButton("Confirmar",null)
+                alert.show()
+            }
         }
 
 

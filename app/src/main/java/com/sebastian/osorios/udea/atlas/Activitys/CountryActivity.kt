@@ -1,14 +1,11 @@
 package com.sebastian.osorios.udea.atlas.Activitys
 
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.viewpager.widget.ViewPager
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 import com.sebastian.osorios.udea.atlas.Adapters.CountryPageAdapter
 import com.sebastian.osorios.udea.atlas.Fragments.CharacteristFragment
@@ -33,8 +30,28 @@ class CountryActivity : AppCompatActivity(){
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
         val country: Countries? = intent?.getSerializableExtra("country") as Countries
+        setName(country)
+        setNativeName(country)
+
+    }
+    private fun setName(country: Countries?){
         val title : TextView = findViewById(R.id.title)
-        title.text = country!!.translations.espanish.toUpperCase() + " (" + country!!.cioc + ")"
+        if(country!!.cioc.equals(""))
+            title.text = country.name.toUpperCase()
+        else{
+            title.text = country.name.toUpperCase() + " (" + country!!.cioc + ")"
+        }
+
+    }
+
+    private fun setNativeName(country : Countries?){
+        val nativeName : TextView = findViewById(R.id.native_name)
+        if(!country!!.nativeName.equals("")){
+            nativeName.text = country.nativeName
+        }else{
+            nativeName.isVisible = false
+        }
+
     }
 
 }
