@@ -8,17 +8,13 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.sebastian.osorios.udea.atlas.Util.CheckInternetConexion
-import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
 import com.sebastian.osorios.udea.atlas.Util.Constants
 import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
 import com.sebastian.osorios.udea.atlas.R
 import java.util.Calendar
 import android.app.DatePickerDialog
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.sebastian.osorios.udea.atlas.Models.User.Usuario
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -83,7 +79,7 @@ class RegisterInAtlas : AppCompatActivity(){
         }
 
         buttonSaveRegister.setOnClickListener {
-            if (checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)){
+
                 buttonSaveRegister.isEnabled=false
                 if (editTextEmailRegister.text.toString().equals("") || editTextPassRegister.text.toString().equals("") ||
                     editTextNameRegister.text.toString().equals("") ||
@@ -124,13 +120,6 @@ class RegisterInAtlas : AppCompatActivity(){
                     }
                     createUser(editTextEmailRegister.text.toString(),editTextPassRegister.text.toString(),gender)
                 }
-            }else{
-                val commonFunctions = CommonFunctions()
-                alert.setTitle(constants.ERROR_TITLE)
-                alert.setMessage(commonFunctions.getErrorMessage("402", ""))
-                alert.setPositiveButton("Confirmar", null)
-                alert.show()
-            }
         }
 
     }
@@ -148,7 +137,8 @@ class RegisterInAtlas : AppCompatActivity(){
                         findViewById<EditText>(R.id.name).text.toString(),
                         findViewById<EditText>(R.id.last_name).text.toString(),
                         findViewById<EditText>(R.id.EditTextdate).text.toString(),
-                        gender
+                        gender,
+                        "null"
                     )
                     myRef.child(id).setValue(usuario)
                     backActivity()

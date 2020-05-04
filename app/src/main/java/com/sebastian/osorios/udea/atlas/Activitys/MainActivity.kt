@@ -57,9 +57,10 @@ class MainActivity : AppCompatActivity() {
         val textViewEmail : TextView = view.findViewById(R.id.textViewEmailNavHeader)
         val imageView : CircleImageView = view.findViewById(R.id.imageViewCircle)
         navView.addHeaderView(view)
+
         val authType = intent.getStringExtra("auth")
         if(authType.equals("email")){
-            imageView.setImageResource(R.drawable.images)
+
             email = intent.getStringExtra("email")
             database = FirebaseDatabase.getInstance()
             myRef = database.getReference("usuarios")
@@ -68,6 +69,11 @@ class MainActivity : AppCompatActivity() {
                     for(snapshot: DataSnapshot in dataSnapshot.children){
                         val map : DataSnapshot = snapshot
                         if(email.equals(map.child("email").value)){
+                            if(map.child("image").value!!.toString().equals("null")){
+                                imageView.setImageResource(R.drawable.images)
+                            }else{
+                                Picasso.get().load(map.child("image").value.toString()).into(imageView)
+                            }
                             textViewEmail.text = email
                             textViewName.text = map.child("name").value.toString() + " " + map.child("lastName").value.toString()
                         }
@@ -80,21 +86,20 @@ class MainActivity : AppCompatActivity() {
             myRef.addValueEventListener(postListener)
 
         }else{
-            var firebaseUser : FirebaseUser? = FirebaseAuth.getInstance().currentUser
+            val firebaseUser : FirebaseUser? = FirebaseAuth.getInstance().currentUser
+
+            Toast.makeText(this,"hizo login",Toast.LENGTH_LONG).show()
             if(firebaseUser != null){
+                Toast.makeText(this,"llego a cargar datos",Toast.LENGTH_LONG).show()
                 textViewName.text = firebaseUser.displayName.toString()
                 textViewEmail.text  = firebaseUser.email.toString()
-                val picasso = Picasso.get().load(firebaseUser.photoUrl).into(imageView)
-            }
-            if(AccessToken.getCurrentAccessToken() == null){
-                goLanding()
-            }
+                Picasso.get().load(firebaseUser.photoUrl).into(imageView)
+            }else{
+                    goLanding()
+                }
+
 
         }
-
-
-
-
 
 
         // Passing each menu ID as a set of Ids because each

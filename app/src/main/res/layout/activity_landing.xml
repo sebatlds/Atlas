@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/des1"
+    android:background="@drawable/drawable_grupo1_fondo"
     tools:context="com.sebastian.osorios.udea.atlas.Activitys.LandingActivity">
     <ScrollView
         android:layout_width="match_parent"
@@ -111,14 +111,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
-                        app:srcCompat="@drawable/ojo" />
+                        app:srcCompat="@drawable/drawable_grupo1_see" />
                     <ImageView
                         android:id="@+id/NoseePassword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:visibility="invisible"
-                        app:srcCompat="@drawable/oculto" />
+                        app:srcCompat="@drawable/drawable_grupo1_dontsee" />
                 </LinearLayout>
 
             </LinearLayout>
