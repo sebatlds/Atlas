@@ -13,6 +13,7 @@ import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
 import com.sebastian.osorios.udea.atlas.R
 import java.util.Calendar
 import android.app.DatePickerDialog
+import android.app.ProgressDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.sebastian.osorios.udea.atlas.Models.User.Usuario
@@ -25,6 +26,7 @@ class RegisterInAtlas : AppCompatActivity(){
 
     val constants = Constants()
     lateinit var auth : FirebaseAuth
+    lateinit var progressDialog : ProgressDialog
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,47 +81,53 @@ class RegisterInAtlas : AppCompatActivity(){
         }
 
         buttonSaveRegister.setOnClickListener {
-
-                buttonSaveRegister.isEnabled=false
-                if (editTextEmailRegister.text.toString().equals("") || editTextPassRegister.text.toString().equals("") ||
-                    editTextNameRegister.text.toString().equals("") ||
-                    editTextLastNameRegister.text.toString().equals("") || editTextDateRegister.text.toString().equals("") ||
-                            editTextPass2.text.toString().equals("")
-                ) {
-                    val alert = AlertDialog.Builder(this)
-                    alert.setTitle("Error")
-                    alert.setMessage("Faltan campos por llenar.")
-                    alert.setPositiveButton(
-                        "Confirmar", null
-                    )
-                    alert.show()
-                    buttonSaveRegister.isEnabled= true
-                } else if (!(editTextPassRegister.text.length >= 6)) {
-                    alert.setTitle("Error")
-                    alert.setMessage("La contraseña no cumple con el tamaño solicitado.")
-                    alert.setPositiveButton(
-                        "Confirmar", null
-                    )
-                    alert.show()
-                    buttonSaveRegister.isEnabled= true
-                }else if(!(editTextPassRegister.text.toString().equals(editTextPass2.text.toString()))){
-                    alert.setTitle("Error")
-                    alert.setMessage("Las contraseñas no coinciden.")
-                    alert.setPositiveButton(
-                        "Confirmar", null
-                    )
-                    alert.show()
-                    buttonSaveRegister.isEnabled= true
+            progressDialog  = ProgressDialog(this)
+            progressDialog.show()
+            progressDialog.setContentView(R.layout.progress_dialog)
+            progressDialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+            buttonSaveRegister.isEnabled=false
+            if (editTextEmailRegister.text.toString().equals("") || editTextPassRegister.text.toString().equals("") ||
+                editTextNameRegister.text.toString().equals("") ||
+                editTextLastNameRegister.text.toString().equals("") || editTextDateRegister.text.toString().equals("") ||
+                editTextPass2.text.toString().equals("")
+            ) {
+                progressDialog.dismiss()
+                val alert = AlertDialog.Builder(this)
+                alert.setTitle("Error")
+                alert.setMessage("Faltan campos por llenar.")
+                alert.setPositiveButton(
+                    "Confirmar", null
+                )
+                alert.show()
+                buttonSaveRegister.isEnabled= true
+            } else if (!(editTextPassRegister.text.length >= 6)) {
+                progressDialog.dismiss()
+                alert.setTitle("Error")
+                alert.setMessage("La contraseña no cumple con el tamaño solicitado.")
+                alert.setPositiveButton(
+                    "Confirmar", null
+                )
+                alert.show()
+                buttonSaveRegister.isEnabled= true
+            }else if(!(editTextPassRegister.text.toString().equals(editTextPass2.text.toString()))){
+                progressDialog.dismiss()
+                alert.setTitle("Error")
+                alert.setMessage("Las contraseñas no coinciden.")
+                alert.setPositiveButton(
+                    "Confirmar", null
+                )
+                alert.show()
+                buttonSaveRegister.isEnabled= true
+            }
+            else {
+                var gender: String;
+                if (radioButtonMenRegister.isChecked) {
+                    gender = "Hombre"
+                } else {
+                    gender = "Mujer"
                 }
-                else {
-                    var gender: String;
-                    if (radioButtonMenRegister.isChecked) {
-                        gender = "Hombre"
-                    } else {
-                        gender = "Mujer"
-                    }
-                    createUser(editTextEmailRegister.text.toString(),editTextPassRegister.text.toString(),gender)
-                }
+                createUser(editTextEmailRegister.text.toString(),editTextPassRegister.text.toString(),gender)
+            }
         }
 
     }
@@ -141,8 +149,10 @@ class RegisterInAtlas : AppCompatActivity(){
                         "null"
                     )
                     myRef.child(id).setValue(usuario)
+                    toastAlertRegistration()
                     backActivity()
                 }else{
+                    progressDialog.dismiss()
                     Toast.makeText(this,"Error al registrar el usuario",Toast.LENGTH_SHORT)
                     findViewById<Button>(R.id.saveRegister).isEnabled=true
                 }
@@ -152,6 +162,7 @@ class RegisterInAtlas : AppCompatActivity(){
     fun backActivity() {
         val intento = Intent(this, LandingActivity::class.java)
         startActivity(intento)
+        progressDialog.dismiss()
         finish()
     }
 

@@ -3,6 +3,7 @@ package com.sebastian.osorios.udea.atlas.Activitys
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.app.ProgressDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -45,6 +46,7 @@ class EditPerfil : AppCompatActivity() {
     private val CAPTURE_IMAGE_REQUEST = 1
     private lateinit var mCurrentPhotoPath: String
     private var imageUri : Uri? = null
+    lateinit var progressDialog: ProgressDialog
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -211,6 +213,10 @@ class EditPerfil : AppCompatActivity() {
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        progressDialog  = ProgressDialog(this)
+        progressDialog.show()
+        progressDialog.setContentView(R.layout.progress_dialog)
+        progressDialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             val storage = FirebaseStorage.getInstance().reference
@@ -235,6 +241,8 @@ class EditPerfil : AppCompatActivity() {
             }
 
 
+        }else{
+            progressDialog.dismiss()
         }
 
 
@@ -273,7 +281,13 @@ class EditPerfil : AppCompatActivity() {
             if(task.isSuccessful){
                 imageUri  = task.result!!
                 Picasso.get().load(imageUri).into(imageView)
+                do {
+                    progressDialog.dismiss()
+                } while(imageView.drawable != null)
+
+
             }else{
+                progressDialog.dismiss()
                 val alert: AlertDialog.Builder = AlertDialog.Builder(this)
                 alert.setTitle("Se produjo un error, vuelve a intentarlo")
                 alert.setPositiveButton("Aceptar",null)

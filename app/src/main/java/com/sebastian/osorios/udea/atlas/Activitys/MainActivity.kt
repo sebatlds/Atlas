@@ -2,6 +2,7 @@ package com.sebastian.osorios.udea.atlas.Activitys
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -41,12 +42,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var database: FirebaseDatabase
     private lateinit var myRef : DatabaseReference
     private lateinit var email : String
+    lateinit var progressDialog : ProgressDialog
     var usuario : Usuario? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FacebookSdk.sdkInitialize(this)
         setContentView(R.layout.activity_main)
-
+        progressDialog  = ProgressDialog(this)
+        progressDialog.show()
+        progressDialog.setContentView(R.layout.progress_dialog)
+        progressDialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -76,6 +81,7 @@ class MainActivity : AppCompatActivity() {
                             }
                             textViewEmail.text = email
                             textViewName.text = map.child("name").value.toString() + " " + map.child("lastName").value.toString()
+                            progressDialog.dismiss()
                         }
                     }
                 }
@@ -88,12 +94,12 @@ class MainActivity : AppCompatActivity() {
         }else{
             val firebaseUser : FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
-            Toast.makeText(this,"hizo login",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Login successful",Toast.LENGTH_LONG).show()
             if(firebaseUser != null){
-                Toast.makeText(this,"llego a cargar datos",Toast.LENGTH_LONG).show()
                 textViewName.text = firebaseUser.displayName.toString()
                 textViewEmail.text  = firebaseUser.email.toString()
                 Picasso.get().load(firebaseUser.photoUrl).into(imageView)
+                progressDialog.dismiss()
             }else{
                     goLanding()
                 }
@@ -142,10 +148,15 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun backToActivityLanding(){
+        progressDialog  = ProgressDialog(this)
+        progressDialog.show()
+        progressDialog.setContentView(R.layout.progress_dialog)
+        progressDialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         LoginManager.getInstance().logOut()
         FirebaseAuth.getInstance().signOut()
         val intento = Intent(this, LandingActivity ::class.java)
         startActivity(intento)
+        progressDialog.dismiss()
         finish()
     }
 
