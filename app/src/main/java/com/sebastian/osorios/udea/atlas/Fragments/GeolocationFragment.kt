@@ -1,27 +1,16 @@
 package com.sebastian.osorios.udea.atlas.Fragments
 
-import android.app.Activity
-import android.content.Context
-import android.content.pm.PackageManager
-import android.graphics.Color
-import android.location.Location
-import android.location.LocationManager
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.findFragment
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.PolylineOptions
 import com.sebastian.osorios.udea.atlas.Models.Countries.Countries
 import com.sebastian.osorios.udea.atlas.R
-import kotlinx.android.synthetic.main.fragment_geolocation.*
 
 class GeolocationFragment : Fragment(), OnMapReadyCallback {
 
@@ -42,13 +31,22 @@ class GeolocationFragment : Fragment(), OnMapReadyCallback {
         val root = inflater.inflate(R.layout.fragment_geolocation, container, false)
         val intent = activity?.intent
         val country : Countries = intent!!.getSerializableExtra("country") as Countries
-        latitud = country.latlng[0]
-        longitud = country.latlng[1]
-        name = country.translations.espanish
-        var mapView: MapView = root.findViewById(R.id.map)
-        mapView.onCreate(savedInstanceState)
-        mapView.onResume()
-        mapView.getMapAsync(this)
+        if(country.latlng.size != 0){
+            latitud = country.latlng[0]
+            longitud = country.latlng[1]
+            name = country.translations.espanish
+            var mapView: MapView = root.findViewById(R.id.map)
+            mapView.onCreate(savedInstanceState)
+            mapView.onResume()
+            mapView.getMapAsync(this)
+        }else{
+            val alert = AlertDialog.Builder(root.context)
+            alert.setTitle("Informacion")
+            alert.setMessage("No se encuentra disponible la localización del país.")
+            alert.setPositiveButton("Aceptar",null)
+            alert.show()
+        }
+
         return root
     }
 

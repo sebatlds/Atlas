@@ -86,6 +86,8 @@ class PerfilFragment : Fragment() {
         }else{
             var firebaseUser : FirebaseUser? = FirebaseAuth.getInstance().currentUser
             if(firebaseUser != null){
+                root.findViewById<TextView>(R.id.title_perfil_date).isVisible = false
+                root.findViewById<TextView>(R.id.title_perfil_gender).isVisible = false
                 val indexs = firebaseUser.displayName.toString().split(" ")
                 textViewName.text = indexs.get(0)
                 textViewLastName.text = indexs.get(1)

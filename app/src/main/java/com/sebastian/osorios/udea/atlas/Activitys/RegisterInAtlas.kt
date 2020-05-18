@@ -1,30 +1,33 @@
 package com.sebastian.osorios.udea.atlas.Activitys
 
 import android.app.AlertDialog
+import android.app.DatePickerDialog
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.sebastian.osorios.udea.atlas.Util.CheckInternetConexion
-import com.sebastian.osorios.udea.atlas.Util.Constants
-import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
-import com.sebastian.osorios.udea.atlas.R
-import java.util.Calendar
-import android.app.DatePickerDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.sebastian.osorios.udea.atlas.Models.User.Usuario
+import com.sebastian.osorios.udea.atlas.R
+import com.sebastian.osorios.udea.atlas.Util.CheckInternetConexion
+import com.sebastian.osorios.udea.atlas.Util.CommonFunctions
+import com.sebastian.osorios.udea.atlas.Util.Constants
+import com.sebastian.osorios.udea.atlas.Util.DatePickerFragment
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-
+import java.util.*
 
 class RegisterInAtlas : AppCompatActivity(){
 
 
     val constants = Constants()
     lateinit var auth : FirebaseAuth
+    lateinit var progressDialog : ProgressDialog
+    lateinit var alert : AlertDialog.Builder
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +43,7 @@ class RegisterInAtlas : AppCompatActivity(){
         var radioButtonMenRegister : RadioButton = findViewById(R.id.checkMen)
         var radioButtonWomenRegister : RadioButton = findViewById(R.id.checkWomen)
         var imageView : ImageView = findViewById(R.id.imageView)
-        val alert = AlertDialog.Builder(this)
+        alert = AlertDialog.Builder(this)
         val checkInternetConexion = CheckInternetConexion()
 
 
@@ -79,36 +82,24 @@ class RegisterInAtlas : AppCompatActivity(){
         }
 
         buttonSaveRegister.setOnClickListener {
-
+            progressDialog  = ProgressDialog(this)
+            progressDialog.show()
+            progressDialog.setContentView(R.layout.progress_dialog)
+            progressDialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+            if(checkInternetConexion.isConnectedToThisServer(constants.GOOGLE_HOST)){
                 buttonSaveRegister.isEnabled=false
                 if (editTextEmailRegister.text.toString().equals("") || editTextPassRegister.text.toString().equals("") ||
                     editTextNameRegister.text.toString().equals("") ||
                     editTextLastNameRegister.text.toString().equals("") || editTextDateRegister.text.toString().equals("") ||
-                            editTextPass2.text.toString().equals("")
+                    editTextPass2.text.toString().equals("")
                 ) {
-                    val alert = AlertDialog.Builder(this)
-                    alert.setTitle("Error")
-                    alert.setMessage("Faltan campos por llenar.")
-                    alert.setPositiveButton(
-                        "Confirmar", null
-                    )
-                    alert.show()
+                    showAlert("409")
                     buttonSaveRegister.isEnabled= true
                 } else if (!(editTextPassRegister.text.length >= 6)) {
-                    alert.setTitle("Error")
-                    alert.setMessage("La contraseña no cumple con el tamaño solicitado.")
-                    alert.setPositiveButton(
-                        "Confirmar", null
-                    )
-                    alert.show()
+                    showAlert("410")
                     buttonSaveRegister.isEnabled= true
                 }else if(!(editTextPassRegister.text.toString().equals(editTextPass2.text.toString()))){
-                    alert.setTitle("Error")
-                    alert.setMessage("Las contraseñas no coinciden.")
-                    alert.setPositiveButton(
-                        "Confirmar", null
-                    )
-                    alert.show()
+                    showAlert("411")
                     buttonSaveRegister.isEnabled= true
                 }
                 else {
@@ -120,6 +111,10 @@ class RegisterInAtlas : AppCompatActivity(){
                     }
                     createUser(editTextEmailRegister.text.toString(),editTextPassRegister.text.toString(),gender)
                 }
+            }else{
+                showAlert("402")
+            }
+
         }
 
     }
@@ -141,9 +136,15 @@ class RegisterInAtlas : AppCompatActivity(){
                         "null"
                     )
                     myRef.child(id).setValue(usuario)
+                    toastAlertRegistration()
                     backActivity()
                 }else{
-                    Toast.makeText(this,"Error al registrar el usuario",Toast.LENGTH_SHORT)
+
+                    if(task.exception!!.message.equals("The email address is already in use by another account.")){
+                        showAlert("408")
+                    }else{
+                        progressDialog.dismiss()
+                    }
                     findViewById<Button>(R.id.saveRegister).isEnabled=true
                 }
             }
@@ -152,6 +153,7 @@ class RegisterInAtlas : AppCompatActivity(){
     fun backActivity() {
         val intento = Intent(this, LandingActivity::class.java)
         startActivity(intento)
+        progressDialog.dismiss()
         finish()
     }
 
@@ -163,6 +165,16 @@ class RegisterInAtlas : AppCompatActivity(){
         Toast.makeText(this,"Registro exitoso.",Toast.LENGTH_LONG ).show()
     }
 
+    private fun showAlert(code : String){
+        progressDialog.dismiss()
+        val commonFunctions = CommonFunctions()
+        alert.setTitle("Error")
+        alert.setMessage(commonFunctions.getErrorMessage(code))
+        alert.setPositiveButton(
+            "Confirmar", null
+        )
+        alert.show()
+    }
 
 }
 
