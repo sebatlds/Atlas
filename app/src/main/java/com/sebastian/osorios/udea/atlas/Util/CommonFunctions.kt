@@ -9,19 +9,13 @@ import java.io.*
 
 class CommonFunctions {
 
-    fun getErrorMessage(codigo : String,body:String): String{
+    fun getErrorMessage(codigo : String): String{
         when(codigo){
-            "301"->{
-                return "El recurso no fue modificado. Puedes usar la versión en caché."
-            }
-            "400"->{
-                return "Solicitud incorrecta."
-            }
             "401"->{
                 return "Solicitud incorrecta."
             }
             "402"->{
-                return "Verifique su conexion a internet."
+                return "Verifique su conexión a internet."
             }
             "403"->{
                 return "El usuario ingresado, no se encuentra registrado."
@@ -33,17 +27,28 @@ class CommonFunctions {
                 return "Verifique los datos ingresados."
             }
             "406"->{
-                return "No ha ingresado los datos correctamente, porfavor verifique e intente nuevamente."
+                return "No ha ingresado los datos correctamente, por favor verifique e intente nuevamente."
             }
-            "422"->{
-                if(body.equals("user must have atleast 11 years to have an account")){
-                    return "el usuario debe tener al menos 11 años para tener una cuenta."
-                }else if(body.substring(0,6).equals("Email ")){
-                    return "El correo electronico ingresado ya se encuentra registrado"
-                }else{
-                    return "Error en los datos ingresados."
-                }
-
+            "407"->{
+                return "Se produjo un error, vuelve a intentarlo."
+            }
+            "408"->{
+                return "La dirección de correo electrónico ya está en uso por otra cuenta."
+            }
+            "409"->{
+                return "Faltan campos por completar."
+            }
+            "410" ->{
+                return "La contraseña no cumple con el tamaño solicitado."
+            }
+            "411"->{
+                return "Las contraseñas no coinciden."
+            }
+            "412"->{
+                return "Error en la autenticación."
+            }
+            "413"->{
+                return "No cuenta con un sensor biométrico, \n Intenta ingresar de otra manera."
             }
             "429"->{
                 return "Demasiadas solicitudes. La solicitud fue rechazada debido a la limitación de la tasa."
@@ -56,6 +61,8 @@ class CommonFunctions {
             }
         }
     }
+
+
 
     fun getFlagsOfCountry(spelling : String): Int {
         when(spelling){

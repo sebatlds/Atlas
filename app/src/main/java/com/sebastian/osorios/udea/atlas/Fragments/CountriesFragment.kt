@@ -98,7 +98,7 @@ class CountriesFragment : Fragment(){
                 progressDialog.dismiss()
                 val alert = AlertDialog.Builder(context)
                 alert.setTitle(constants.ERROR_TITLE)
-                alert.setMessage(commonFunctions.getErrorMessage("501", ""))
+                alert.setMessage(commonFunctions.getErrorMessage("501"))
                 alert.setPositiveButton(
                     "Confirmar", null
                 )

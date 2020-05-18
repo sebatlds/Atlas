@@ -18,9 +18,10 @@ import com.sebastian.osorios.udea.atlas.R
 
 class OthersFragment : Fragment() {
 
-    var linearBorders : LinearLayout ? = null
-    var linearIdiomas : LinearLayout ?= null
-    var linearCurrencies : LinearLayout ? = null
+
+    var textView : TextView ? = null
+    var textBorders : TextView ? = null
+    var textCurrencies : TextView ? = null
     var linearRegionalBloc : LinearLayout ? = null
     var linearCallingCodes : LinearLayout ? = null
     var textDomain : TextView ? = null
@@ -32,17 +33,18 @@ class OthersFragment : Fragment() {
     var textTitleCalling : TextView ? = null
     var textTitleCountryCodes : TextView ? = null
     var textCountryCode : TextView ? = null
+    lateinit var root : View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_others, container, false)
+        root = inflater.inflate(R.layout.fragment_others, container, false)
         val intent = activity?.intent
         val country: Countries? = intent?.getSerializableExtra("country") as Countries
-        linearBorders = root.findViewById(R.id.layout_limites)
-        linearIdiomas = root.findViewById(R.id.layout_idiomas)
-        linearCurrencies = root.findViewById(R.id.layout_monedas)
+        textBorders = root.findViewById(R.id.limites)
+        textView = root.findViewById(R.id.idiomas)
+        textCurrencies = root.findViewById(R.id.currency)
         linearRegionalBloc = root.findViewById(R.id.layout_regional_bloc)
         linearCallingCodes = root.findViewById(R.id.linear_calling)
         textDomain = root.findViewById(R.id.top_level)
@@ -67,73 +69,48 @@ class OthersFragment : Fragment() {
         country: Countries?
     ){
         if(country!!.borders.size != 0) {
-            for (item in 0..country!!.borders.size - 1) {
-                val textView = TextView(this.context)
-                if(item != country!!.borders.size - 1){
-                    textView.text = country.borders[item]+","
+            var borders = ""
+            for (item in 0..country.borders.size - 1) {
+                if(item != country.borders.size - 1){
+                    borders = borders + " " + country.borders[item]+","
                 }else{
-                    textView.text = country.borders[item]
+                    borders = borders + " " +  country.borders[item]
                 }
-                textView.setTextColor(Color.WHITE)
-                textView.textSize = 20F
-                textView.setPadding(5, 5, 5, 5)
-                linearBorders!!.addView(textView)
-
             }
+            textBorders!!.text = borders
         }else{
             textTitleBorders!!.isVisible = false
-            linearBorders!!.isVisible = false
         }
     }
 
     private fun setLanguajeData(country : Countries?){
         if(country!!.languages.size > 1) {
+            var languajes  = ""
             for (item in 0..country.languages.size - 1) {
-                val textView = TextView(this.context)
                 if(item != country.languages.size - 1){
-                    textView.text = country.languages[item].name+"("+country.languages[item].iso6392+"), "
+                    languajes = languajes + " " + country.languages[item].name+"("+country.languages[item].iso6392+"), "
+
                 }else{
-                    textView.text = country.languages[item].name+"("+country.languages[item].iso6392+")"
+                    languajes = languajes + " " + country.languages[item].name+"("+country.languages[item].iso6392+")"
                 }
-                textView.setTextColor(Color.WHITE)
-                textView.textSize = 20F
-                textView.setPadding(5, 5, 5, 5)
-                linearIdiomas!!.addView(textView)
 
             }
+            textView!!.text = languajes
         }else{
-            val textView = TextView(this.context)
-            textView.text = country.languages[0].name+"("+country.languages[0].iso6392+")"
-            textView.textSize = 20F
-            textView.setPadding(5, 5, 5, 5)
-            textView.setTextColor(Color.WHITE)
-            linearIdiomas!!.addView(textView)
+            textView!!.text = country.languages[0].name+"("+country.languages[0].iso6392+")"
+
         }
     }
 
     private fun setCurrencies(country: Countries?){
-        if(country!!.currencies.size > 1) {
+        if(country!!.currencies.size != 0) {
+            var currencies = ""
             for (item in 0..country.currencies.size - 1) {
-                val textView = TextView(this.context)
-                textView.text = country.currencies[item].name+"("+country.currencies[item].symbol+")"
-                textView.setTextColor(Color.WHITE)
-                textView.height = textView.minHeight
-                textView.width = textView.maxWidth
-                textView.gravity = Gravity.CENTER
-                textView.textSize = 20F
-                textView.setPadding(5, 5, 5, 5)
-                linearCurrencies!!.addView(textView)
-
+                currencies = currencies + " " + country.currencies[item].name+"("+country.currencies[item].symbol+")"
             }
+            textCurrencies!!.text = currencies
         }else{
-            val textView = TextView(this.context)
-            textView.text = country.currencies[0].name+"("+country.currencies[0].symbol+")"
-            textView.width = textView.maxWidth
-            textView.gravity = Gravity.CENTER
-            textView.textSize = 20F
-            textView.setPadding(5, 5, 5, 5)
-            textView.setTextColor(Color.WHITE)
-            linearCurrencies!!.addView(textView)
+            root.findViewById<TextView>(R.id.currencies).isVisible = false
         }
     }
 
