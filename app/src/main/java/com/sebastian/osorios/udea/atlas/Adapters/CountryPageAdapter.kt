@@ -1,19 +1,9 @@
 package com.sebastian.osorios.udea.atlas.Adapters
 
-import android.R
-import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
-import android.widget.ArrayAdapter
-import android.widget.LinearLayout
-import android.widget.Toast
+
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.viewpager.widget.PagerAdapter
 
 
 

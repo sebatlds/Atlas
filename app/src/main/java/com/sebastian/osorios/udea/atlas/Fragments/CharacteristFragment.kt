@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.sebastian.osorios.udea.atlas.Models.Countries.Countries
 import com.sebastian.osorios.udea.atlas.R
@@ -29,15 +30,19 @@ class CharacteristFragment : Fragment() {
         val gini : TextView = root.findViewById(R.id.gini)
 
         capital.text = country!!.capital
-        if(country.altSpellings.size != 0) {
+        if(country.altSpellings.size != 0 && !country.altSpellings.get(country.altSpellings.size - 1).equals("")) {
             nombre.text = country.altSpellings.get(country.altSpellings.size - 1)
+        }else{
+            root.findViewById<TextView>(R.id.title_name_country).isVisible = false
         }
+
+
         region.text = country.region
         subRegion.text = country.subregion
         domain.text = " "+ country.demonym
         area.text = " "+ country.area.toString() + " m²"
         poblacion.text = " " + country.population.toString()
-        zona.text = country.timezones.toString()
+        zona.text = country.timezones.toString().replace("[","").replace("]","")
         gini.text = country.gini.toString()
 
         return root

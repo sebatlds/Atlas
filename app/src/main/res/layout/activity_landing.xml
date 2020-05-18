@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="299dp"
@@ -21,6 +22,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:padding="5dp">
+
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
@@ -28,6 +30,7 @@
                     android:layout_marginTop="50dp"
                     app:srcCompat="@drawable/atls" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/linearLyaoutButtons"
                 android:layout_width="match_parent"
@@ -60,12 +63,14 @@
                     android:layout_marginTop="5dp"
                     tools:ignore="MissingConstraints"/>
 
-                <com.google.android.gms.common.SignInButton
-                    android:id="@+id/sign_in_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"/>
-
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/huella"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="85dp"
+                    android:layout_height="95dp"
+                    android:clickable="true"
+                    android:onClick="loginFingerprint"
+                    android:src="@drawable/huella"/>
             </LinearLayout>
 
 
@@ -93,9 +98,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
-
-
                     <EditText
                         android:id="@+id/passLogin"
                         android:layout_width="wrap_content"
@@ -105,7 +107,6 @@
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
-
                     <ImageView
                         android:id="@+id/seePassword"
                         android:layout_width="wrap_content"
@@ -120,7 +121,6 @@
                         android:visibility="invisible"
                         app:srcCompat="@drawable/drawable_grupo1_dontsee" />
                 </LinearLayout>
-
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/buttonLogin"
@@ -145,6 +145,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_buttons"
                     android:padding="5dp"
+                    android:onClick="continueLogin"
                     android:text="@string/continu" />
             </LinearLayout>
         </LinearLayout>
